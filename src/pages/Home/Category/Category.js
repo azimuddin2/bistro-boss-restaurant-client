@@ -8,6 +8,7 @@ import pizzas from '../../../assets/Images/home/pizzas.jpg';
 import soups from '../../../assets/Images/home/soups.jpg';
 import desserts from '../../../assets/Images/home/desserts.jpg';
 import drinks from '../../../assets/Images/home/drinks.jpg';
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const Category = () => {
 
@@ -40,7 +41,11 @@ const Category = () => {
     ];
 
     return (
-        <section className='max-w-screen-lg mx-auto'>
+        <section className='max-w-screen-lg lg:mx-auto mx-5 my-12'>
+            <SectionTitle
+                subHeading={"From 11:00am to 10:00pm"}
+                heading={"Order Online"}
+            ></SectionTitle>
             <Swiper
                 style={{
                     "--swiper-pagination-color": "#CD9003",
@@ -53,7 +58,7 @@ const Category = () => {
                 breakpoints={{
                     576: {
                         width: 576,
-                        slidesPerView: 2,
+                        slidesPerView: 1,
                     },
                     768: {
                         width: 768,
@@ -66,20 +71,19 @@ const Category = () => {
                     },
                 }}
                 modules={[A11y, Pagination, Autoplay]}
-                spaceBetween={12}
+                spaceBetween={16}
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                navigation={true}
                 pagination={{ clickable: true }}
             >
                 <div>
                     {
                         categoryFoods.map(categoryFood => <SwiperSlide key={categoryFood.id}>
-                            <div className='mb-12'>
-                                <img src={categoryFood.image} alt=""/>
-                                <h2 className=' text-xl'>{categoryFood.title}</h2>
+                            <div className='mb-20'>
+                                <img src={categoryFood.image} alt={categoryFood.title} className='w-full' />
+                                <h2 className='text-xl uppercase -mt-14 text-center text-white'>{categoryFood.title}</h2>
                             </div>
                         </SwiperSlide>)
                     }
