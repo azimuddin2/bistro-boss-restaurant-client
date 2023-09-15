@@ -3,7 +3,7 @@ import { HiOutlinePhoneArrowUpRight } from 'react-icons/hi2'
 
 const Contact = () => {
     return (
-        <section className='max-w-screen-lg lg:mx-auto mx-5 mb-12'>
+        <section className='max-w-screen-lg lg:mx-auto mx-5'>
             <div className="md:flex justify-center items-center bg-secondary rounded-none py-14">
                 <figure>
                     <HiOutlinePhoneArrowUpRight className='text-5xl text-white mx-auto'></HiOutlinePhoneArrowUpRight>
