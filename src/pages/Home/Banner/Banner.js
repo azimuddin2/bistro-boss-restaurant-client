@@ -11,7 +11,7 @@ import './Banner.css';
 
 const Banner = () => {
     return (
-        <section>
+        <section className='max-w-screen-xl lg:mx-auto'>
             <Carousel>
                 <div>
                     <img src={banner1} alt='banner' />
