@@ -2,7 +2,6 @@ import React from 'react';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import featuredImg from '../../../assets/Images/home/featured.jpg';
 import { Link } from 'react-router-dom';
-import './Featured.css';
 
 const Featured = () => {
     return (
@@ -23,13 +22,12 @@ const Featured = () => {
                         <div>
                             <img src={featuredImg} alt="featured" className='w-full' />
                         </div>
-                        <div className='text-white lg:ml-10'>
+                        <div className='text-white lg:ml-10 mt-8 lg:mt-0'>
                             <p className='mb-1'>January 01, 2024</p>
                             <p className='mb-2'>WHERE CAN I GET SOME?</p>
                             <p className='text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
                             <Link
                                 to={'/'}
-                            // className='flex justify-center mt-10'
                             >
                                 <button className='btn btn-outline border-0 border-b-2 text-white mt-6'>Order Now</button>
                             </Link>
