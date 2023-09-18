@@ -5,7 +5,7 @@ const MenuItem = ({ item }) => {
 
     return (
         <div className='md:flex md:justify-between md:items-center shadow-md lg:shadow-none p-5 lg:p-0 rounded-sm'>
-            <img src={image} alt={name} className='w-20 h-20' />
+            <img src={image} alt={name} className='w-28' />
             <div className='lg:mx-5'>
                 <div className='flex justify-between mt-2 md:mt-0'>
                     <h3 className='uppercase text-secondary text-base md:text-lg'>{name} --------------</h3>
