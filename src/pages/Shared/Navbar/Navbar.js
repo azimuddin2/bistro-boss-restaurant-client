@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/Images/others/logo.png';
+import CustomLink from './CustomLink';
 
 const Navbar = () => {
 
     const navOptions = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/contact">Our Menu</Link></li>
-        <li><Link to="/contact">Our Shop</Link></li>
-        <li><Link to="/contact">Contact Us</Link></li>
-        <li><Link to="/login">Login</Link></li>
+        <li><CustomLink to="/">Home</CustomLink></li>
+        <li><CustomLink to="/menu">Our Menu</CustomLink></li>
+        <li><CustomLink to="/order">Our Order</CustomLink></li>
+        <li><CustomLink to="/contact">Contact</CustomLink></li>
     </>
 
     return (

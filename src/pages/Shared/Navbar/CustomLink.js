@@ -7,9 +7,11 @@ const CustomLink = ({ children, to, ...props }) => {
 
     return (
         <Link
+            className='uppercase'
             style={{
-                color: match ? '#FF3811' : '',
-                fontWeight: match ? '700' : '',
+                color: match ? '#D99904' : 'white',
+                fontWeight: match ? '700' : '500',
+                borderBottom: match ? '2px solid #D99904' : 'none',
             }}
             to={to}
             {...props}
