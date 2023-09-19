@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import PageCover from '../Shared/PageCover/PageCover';
-import orderFoodImg from '../../assets/Images/others/order-food.jpg';
+import PageCover from '../../Shared/PageCover/PageCover';
+import orderFoodImg from '../../../assets/Images/others/order-food.jpg';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import useMenu from '../../hooks/useMenu';
-import OrderTab from './OrderTab/OrderTab';
+import useMenu from '../../../hooks/useMenu';
+import OrderTab from '../OrderTab/OrderTab';
+import './Order.css';
 
 const Order = () => {
     const [tabIndex, setTabIndex] = useState(0);
@@ -27,7 +28,7 @@ const Order = () => {
                 details={'Would you like to try a dish?'}
             ></PageCover>
 
-            <div className='max-w-screen-lg lg:mx-auto mx-5'>
+            <div className='max-w-screen-lg lg:mx-auto mx-5 mt-16'>
                 <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                     <TabList>
                         <Tab>Coffee</Tab>
@@ -44,6 +45,19 @@ const Order = () => {
                     <TabPanel>
                         <OrderTab items={dessert}></OrderTab>
                     </TabPanel>
+                    <TabPanel>
+                        <OrderTab items={pizza}></OrderTab>
+                    </TabPanel>
+                    <TabPanel>
+                        <OrderTab items={burger}></OrderTab>
+                    </TabPanel>
+                    <TabPanel>
+                        <OrderTab items={soup}></OrderTab>
+                    </TabPanel>
+                    <TabPanel>
+                        <OrderTab items={salad}></OrderTab>
+                    </TabPanel>
+                    
                 </Tabs>
             </div>
 
