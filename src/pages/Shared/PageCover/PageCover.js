@@ -17,7 +17,7 @@ const PageCover = ({ image, title, details }) => {
             >
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-semibold uppercase text-white">{title}</h1>
-                    <p className="mb-5">{details}</p>
+                    <p className="mb-5 uppercase text-white">{details}</p>
                 </div>
             </div>
         </section>

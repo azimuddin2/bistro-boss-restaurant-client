@@ -8,7 +8,7 @@ const Navbar = () => {
     const navOptions = <>
         <li><CustomLink to="/">Home</CustomLink></li>
         <li><CustomLink to="/menu">Our Menu</CustomLink></li>
-        <li><CustomLink to="/order">Our Order</CustomLink></li>
+        <li><CustomLink to="/order">Order Food</CustomLink></li>
         <li><CustomLink to="/contact">Contact</CustomLink></li>
     </>
 
