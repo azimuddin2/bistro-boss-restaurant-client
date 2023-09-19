@@ -3,10 +3,11 @@ import React from 'react';
 const PageCover = ({ image, title, details }) => {
     return (
         <section
-            className="hero min-h-screen max-w-screen-xl mx-auto"
+            className="hero max-w-screen-xl mx-auto bg-fixed"
             style={{
                 backgroundImage: `url(${image})`,
                 backgroundSize: 'cover',
+                height: '600px'
             }}
         >
             <div className="hero-overlay bg-opacity-40"></div>

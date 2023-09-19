@@ -3,11 +3,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import salads from '../../../assets/Images/home/salads.jpg';
-import pizzas from '../../../assets/Images/home/pizzas.jpg';
-import soups from '../../../assets/Images/home/soups.jpg';
-import desserts from '../../../assets/Images/home/desserts.jpg';
-import drinks from '../../../assets/Images/home/drinks.jpg';
+import salad from '../../../assets/Images/home/salad.jpg';
+import pizza from '../../../assets/Images/home/pizza.jpg';
+import soup from '../../../assets/Images/home/soup.jpg';
+import dessert from '../../../assets/Images/home/dessert.jpg';
+import burger from '../../../assets/Images/home/burger.png';
+import coffee from '../../../assets/Images/home/coffee.png';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const Category = () => {
@@ -15,29 +16,34 @@ const Category = () => {
     const categoryFoods = [
         {
             id: 1,
-            image: salads,
-            title: 'Salads'
+            image: salad,
+            title: 'Salad'
         },
         {
             id: 2,
-            image: pizzas,
-            title: 'Pizzas'
+            image: pizza,
+            title: 'Pizza'
         },
         {
             id: 3,
-            image: soups,
-            title: 'Soups'
+            image: soup,
+            title: 'Soup'
         },
         {
             id: 4,
-            image: desserts,
-            title: 'Desserts'
+            image: dessert,
+            title: 'Dessert'
         },
         {
             id: 5,
-            image: drinks,
-            title: 'Drinks'
+            image: burger,
+            title: 'Burger'
         },
+        {
+            id: 6,
+            image: coffee,
+            title: 'Coffee'
+        }
     ];
 
     return (
@@ -83,7 +89,7 @@ const Category = () => {
                         categoryFoods.map(categoryFood => <SwiperSlide key={categoryFood.id}>
                             <div className='mb-20'>
                                 <img src={categoryFood.image} alt={categoryFood.title} className='w-full' />
-                                <h2 className='text-xl uppercase -mt-14 text-center text-white'>{categoryFood.title}</h2>
+                                <h2 className='text-xl uppercase -mt-16 text-center text-white'>{categoryFood.title}</h2>
                             </div>
                         </SwiperSlide>)
                     }

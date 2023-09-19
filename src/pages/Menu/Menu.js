@@ -4,12 +4,12 @@ import menuBgImage from '../../assets/Images/menu/menu-bg.jpg';
 import useMenu from '../../hooks/useMenu';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import MenuCategory from './MenuCategory/MenuCategory';
+import coffeeCoverImg from '../../assets/Images/menu/coffee-bg.jpg';
+import dessertCoverImg from '../../assets/Images/menu/dessert-bg.jpg';
+import pizzaCoverImg from '../../assets/Images/menu/pizza-bg.jpg';
+import burgerCoverImg from '../../assets/Images/menu/burger-bg.png';
 import soupCoverImg from '../../assets/Images/menu/soup-bg.jpg';
 import saladCoverImg from '../../assets/Images/menu/salad-bg.jpg';
-import pizzaCoverImg from '../../assets/Images/menu/pizza-bg.jpg';
-import coffeeCoverImg from '../../assets/Images/menu/coffee-bg.jpg';
-import burgerCoverImg from '../../assets/Images/menu/burger-bg.png';
-import dessertCoverImg from '../../assets/Images/menu/dessert-bg.jpg';
 
 const Menu = () => {
     const [menu, isLoading, isError] = useMenu();
@@ -37,7 +37,7 @@ const Menu = () => {
                 title={"Our Menu"}
                 details={"Would you like to try a dish?"}
             ></PageCover>
-            <div>
+            <div className='mt-16'>
                 <SectionTitle subHeading={"Don't miss"} heading={"TODAY'S OFFER"}></SectionTitle>
                 <MenuCategory items={offered}></MenuCategory>
                 <MenuCategory items={coffee} image={coffeeCoverImg} title={"Coffee"}></MenuCategory>

@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import MenuItem from '../../../components/MenuItem/MenuItem';
 import { Link } from 'react-router-dom';
+import useMenu from '../../../hooks/useMenu';
 
 const PopularMenu = () => {
-    const [foodMenu, setFoodMenu] = useState([]);
+    const [menu, isLoading, isError] = useMenu();
 
-    useEffect(() => {
-        fetch('food-menu.json')
-            .then(res => res.json())
-            .then(data => {
-                const popularItems = data.filter(item => item.category === 'popular');
-                setFoodMenu(popularItems);
-            })
-    }, [])
+    const popularMenu = menu?.filter(item => item.category === 'popular');
+
+    if (isError) {
+        return <p>Error</p>
+    }
+
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
 
     return (
         <section className='max-w-screen-lg lg:mx-auto mx-5 my-12'>
@@ -23,14 +25,14 @@ const PopularMenu = () => {
             ></SectionTitle>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10'>
                 {
-                    foodMenu.map(item => <MenuItem
+                    popularMenu.map(item => <MenuItem
                         key={item._id}
                         item={item}
                     ></MenuItem>)
                 }
             </div>
             <Link
-                to={'/'}
+                to={'/menu'}
                 className='flex justify-center mt-10'
             >
                 <button className='btn btn-outline border-0 border-b-2'>View Full Menu</button>
