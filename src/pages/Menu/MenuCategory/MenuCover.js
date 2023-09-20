@@ -16,7 +16,7 @@ const MenuCover = ({ image, title }) => {
                 style={{ background: ' rgba(21, 21, 21, 0.60)' }}
             >
                 <div className="max-w-md">
-                    <h1 className="mb-5 text-4xl font-semibold uppercase text-white">{title}</h1>
+                    <h1 className="font-family mb-3 text-4xl font-semibold uppercase text-white">{title}</h1>
                     <p className="mb-5 text-sm">Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
             </div>

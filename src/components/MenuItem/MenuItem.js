@@ -8,7 +8,7 @@ const MenuItem = ({ item }) => {
             <img src={image} alt={name} className='w-32' />
             <div className='lg:mx-3'>
                 <div className='flex justify-between mt-2 md:mt-0'>
-                    <h3 className='uppercase text-secondary text-base md:text-lg'>{name} --------------</h3>
+                    <h3 className='font-family  font-medium uppercase text-secondary text-base md:text-lg'>{name} --------------</h3>
                     <p className='text-primary font-semibold'>${price}</p>
                 </div>
                 <p className='text-accent text-sm md:text-base mt-1 md:mt-0'>{recipe}</p>

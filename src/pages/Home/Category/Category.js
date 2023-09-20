@@ -89,7 +89,7 @@ const Category = () => {
                         categoryFoods.map(categoryFood => <SwiperSlide key={categoryFood.id}>
                             <div className='mb-20'>
                                 <img src={categoryFood.image} alt={categoryFood.title} className='w-full' />
-                                <h2 className='text-xl uppercase -mt-16 text-center text-white'>{categoryFood.title}</h2>
+                                <h2 className='font-family text-xl uppercase -mt-16 text-center text-white'>{categoryFood.title}</h2>
                             </div>
                         </SwiperSlide>)
                     }
