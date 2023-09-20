@@ -27,7 +27,7 @@ const Featured = () => {
                             <p className='mb-2'>WHERE CAN I GET SOME?</p>
                             <p className='text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
                             <Link
-                                to={'/'}
+                                to={'/menu'}
                             >
                                 <button className='btn btn-outline border-0 border-b-2 text-white mt-6'>Order Now</button>
                             </Link>

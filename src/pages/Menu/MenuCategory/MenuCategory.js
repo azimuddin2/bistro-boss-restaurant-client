@@ -12,7 +12,7 @@ const MenuCategory = ({ items, image, title }) => {
             <div className='max-w-screen-lg lg:mx-auto mx-5'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10'>
                     {
-                        items.map(item => <MenuItem
+                        items?.map(item => <MenuItem
                             key={item._id}
                             item={item}
                         ></MenuItem>)

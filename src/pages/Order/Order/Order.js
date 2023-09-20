@@ -7,14 +7,16 @@ import useMenu from '../../../hooks/useMenu';
 import OrderTab from '../OrderTab/OrderTab';
 import './Order.css';
 import { useParams } from 'react-router-dom';
+import Loading from '../../Shared/Loading/Loading';
+import Error from '../../Shared/Error/Error';
 
 const Order = () => {
     const categories = ['offered', 'coffee', 'dessert', 'pizza', 'burger', 'soup', 'salad']
     const {category} = useParams();
     const initialIndex = categories.indexOf(category);
     const [tabIndex, setTabIndex] = useState(initialIndex);
-
-    const [menu, isLoading, isError] = useMenu();
+    
+    const [menu, isLoading, error] = useMenu();
 
     const offered = menu?.filter(item => item.category === 'offered');
     const coffee = menu?.filter(item => item.category === 'coffee');
@@ -24,8 +26,12 @@ const Order = () => {
     const soup = menu?.filter(item => item.category === 'soup');
     const salad = menu?.filter(item => item.category === 'salad');
 
+    if(error){
+        return <Error message={error.message}></Error>
+    }
+
     if(isLoading){
-        return <p>Loading...</p>
+        return <Loading></Loading>
     }
 
     return (

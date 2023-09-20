@@ -3,18 +3,20 @@ import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import MenuItem from '../../../components/MenuItem/MenuItem';
 import { Link } from 'react-router-dom';
 import useMenu from '../../../hooks/useMenu';
+import Loading from '../../Shared/Loading/Loading';
+import Error from '../../Shared/Error/Error';
 
 const PopularMenu = () => {
-    const [menu, isLoading, isError] = useMenu();
+    const [menu, isLoading, error] = useMenu();
 
     const popularMenu = menu?.filter(item => item.category === 'popular');
 
-    if (isError) {
-        return <p>Error</p>
+    if (error) {
+        return <Error message={error.message}></Error>
     }
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <Loading></Loading>
     }
 
     return (
@@ -25,7 +27,7 @@ const PopularMenu = () => {
             ></SectionTitle>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10'>
                 {
-                    popularMenu.map(item => <MenuItem
+                    popularMenu?.map(item => <MenuItem
                         key={item._id}
                         item={item}
                     ></MenuItem>)
