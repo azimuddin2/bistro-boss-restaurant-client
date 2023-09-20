@@ -23,21 +23,21 @@ const Footer = () => {
                 <div>
                     <span className=" text-white font-semibold text-lg mb-2">Quick Links</span>
                     <a href="/" className="link link-hover">About Us</a>
-                    <a href="/" className="link link-hover">Service</a>
-                    <a href="/" className="link link-hover">Doctors</a>
-                    <a href="/" className="link link-hover">Departments</a>
+                    <a href="/" className="link link-hover">Our Menu</a>
+                    <a href="/" className="link link-hover">Order Food</a>
+                    <a href="/" className="link link-hover">Contact Us</a>
                     <a href="/" className="link link-hover">Online Payment</a>
                 </div>
                 <div>
-                    <span className="text-white font-semibold text-lg mb-2">Doc House Services</span>
-                    <a href="/" className="link link-hover">Pediatric Clinic</a>
-                    <a href="/" className="link link-hover">Diagnosis Clinic</a>
-                    <a href="/" className="link link-hover">Cardiac Clinic</a>
-                    <a href="/" className="link link-hover">Laboratory Analysis</a>
-                    <a href="/" className="link link-hover">Gynecological Clinic</a>
+                    <span className="text-white font-semibold text-lg mb-2">Working Hours Time</span>
+                    <a href="/" className="link link-hover">Sunday - 10 am to 7 pm</a>
+                    <a href="/" className="link link-hover">Monday - 10 am to 7 pm</a>
+                    <a href="/" className="link link-hover">Tuesday - 10 am to 7 pm</a>
+                    <a href="/" className="link link-hover">Wednesday - 10 am to 7 pm</a>
+                    <a href="/" className="link link-hover">Thursday - 10 am to 7 pm</a>
                 </div>
             </div>
-            <p className='text-center py-6'><small>Copyright © 2024 - All right reserved by Doc House Ltd</small></p>
+            <p className='text-center py-6'><small>Copyright © 2024 - Bistro Boss Restaurant</small></p>
             <ScrollToTop
                 smooth
                 className="animate-bounce flex justify-center items-center"
@@ -45,7 +45,7 @@ const Footer = () => {
                 width="16"
                 height="16"
                 top="400"
-                // style={{ background: "#D99904", boxShadow: 'none', borderRadius: "5px" }}
+            // style={{ background: "#D99904", boxShadow: 'none', borderRadius: "5px" }}
             />
         </footer>
     );
