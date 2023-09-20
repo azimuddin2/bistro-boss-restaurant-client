@@ -8,7 +8,7 @@ const Navbar = () => {
     const navOptions = <>
         <li><CustomLink to="/">Home</CustomLink></li>
         <li><CustomLink to="/menu">Our Menu</CustomLink></li>
-        <li><CustomLink to="/order">Order Food</CustomLink></li>
+        <li><CustomLink to="/order/coffee">Order Food</CustomLink></li>
         <li><CustomLink to="/contact">Contact</CustomLink></li>
     </>
 
@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className='fixed z-10 w-full'>
             <div
                 style={{ background: "rgba(21, 21, 21, 0.50)" }}
-                className="navbar mx-auto max-w-screen-xl text-white px-10"
+                className="navbar mx-auto max-w-screen-xl text-white lg:px-10"
             >
                 <div className="navbar-start">
                     <div className="dropdown">

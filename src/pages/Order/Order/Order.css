@@ -1,3 +1,7 @@
+.add-cart-btn:hover{
+    background-color: #111827 !important;
+}
+
 /* react tabs css modify */
 .react-tabs__tab-list {
     border-bottom: none !important;
@@ -37,7 +41,7 @@
 @media screen and (max-width: 576px) {
     .react-tabs__tab-list {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(7, 1fr);
         overflow-x: scroll !important;
         overflow-y: hidden;
     }

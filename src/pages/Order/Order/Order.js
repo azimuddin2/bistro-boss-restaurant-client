@@ -6,9 +6,13 @@ import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../../hooks/useMenu';
 import OrderTab from '../OrderTab/OrderTab';
 import './Order.css';
+import { useParams } from 'react-router-dom';
 
 const Order = () => {
-    const [tabIndex, setTabIndex] = useState(0);
+    const categories = ['offered', 'coffee', 'dessert', 'pizza', 'burger', 'soup', 'salad']
+    const {category} = useParams();
+    const initialIndex = categories.indexOf(category);
+    const [tabIndex, setTabIndex] = useState(initialIndex);
 
     const [menu, isLoading, isError] = useMenu();
 
@@ -19,6 +23,10 @@ const Order = () => {
     const burger = menu?.filter(item => item.category === 'burger');
     const soup = menu?.filter(item => item.category === 'soup');
     const salad = menu?.filter(item => item.category === 'salad');
+
+    if(isLoading){
+        return <p>Loading...</p>
+    }
 
     return (
         <section>
@@ -31,6 +39,7 @@ const Order = () => {
             <div className='max-w-screen-lg lg:mx-auto mx-5 mt-16'>
                 <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                     <TabList>
+                        <Tab>Offer</Tab>
                         <Tab>Coffee</Tab>
                         <Tab>Dessert</Tab>
                         <Tab>Pizza</Tab>
@@ -39,6 +48,9 @@ const Order = () => {
                         <Tab>Salad</Tab>
                     </TabList>
 
+                    <TabPanel>
+                        <OrderTab items={offered}></OrderTab>
+                    </TabPanel>
                     <TabPanel>
                         <OrderTab items={coffee}></OrderTab>
                     </TabPanel>

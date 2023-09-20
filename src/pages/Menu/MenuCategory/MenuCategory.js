@@ -7,7 +7,7 @@ const MenuCategory = ({ items, image, title }) => {
     return (
         <div>
             {
-                title && <MenuCover image={image} title={title}></MenuCover>
+                image && <MenuCover image={image} title={title}></MenuCover>
             }
             <div className='max-w-screen-lg lg:mx-auto mx-5'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10'>
@@ -19,7 +19,7 @@ const MenuCategory = ({ items, image, title }) => {
                     }
                 </div>
                 <Link
-                    to={'/'}
+                    to={`/order/${title}`}
                     className='flex justify-center my-10'
                 >
                     <button className='btn btn-outline border-0 border-b-2'>Order your favorite food</button>

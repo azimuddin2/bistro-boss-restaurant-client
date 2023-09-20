@@ -39,13 +39,13 @@ const Menu = () => {
             ></PageCover>
             <div className='mt-16'>
                 <SectionTitle subHeading={"Don't miss"} heading={"TODAY'S OFFER"}></SectionTitle>
-                <MenuCategory items={offered}></MenuCategory>
-                <MenuCategory items={coffee} image={coffeeCoverImg} title={"Coffee"}></MenuCategory>
+                <MenuCategory items={offered} title={'offered'}></MenuCategory>
+                <MenuCategory items={coffee} image={coffeeCoverImg} title={"coffee"}></MenuCategory>
                 <MenuCategory items={dessert} image={dessertCoverImg} title={"dessert"}></MenuCategory>
-                <MenuCategory items={pizza} image={pizzaCoverImg} title={"Pizza"}></MenuCategory>
-                <MenuCategory items={burger} image={burgerCoverImg} title={"Burger"}></MenuCategory>
-                <MenuCategory items={soup} image={soupCoverImg} title={"Soup"}></MenuCategory>
-                <MenuCategory items={salad} image={saladCoverImg} title={"Salad"}></MenuCategory>
+                <MenuCategory items={pizza} image={pizzaCoverImg} title={"pizza"}></MenuCategory>
+                <MenuCategory items={burger} image={burgerCoverImg} title={"burger"}></MenuCategory>
+                <MenuCategory items={soup} image={soupCoverImg} title={"soup"}></MenuCategory>
+                <MenuCategory items={salad} image={saladCoverImg} title={"salad"}></MenuCategory>
             </div>
         </section>
     );
