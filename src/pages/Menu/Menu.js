@@ -12,8 +12,10 @@ import soupCoverImg from '../../assets/Images/menu/soup-bg.jpg';
 import saladCoverImg from '../../assets/Images/menu/salad-bg.jpg';
 import Loading from '../Shared/Loading/Loading';
 import Error from '../Shared/Error/Error';
+import useTitle from '../../hooks/useTitle';
 
 const Menu = () => {
+    useTitle('Our Menu');
     const [menu, isLoading, error] = useMenu();
 
     const offered = menu?.filter(item => item.category === 'offered');

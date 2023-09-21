@@ -12,7 +12,7 @@ import './Banner.css';
 const Banner = () => {
     return (
         <section className='max-w-screen-xl lg:mx-auto'>
-            <Carousel>
+            <Carousel autoPlay infiniteLoop>
                 <div>
                     <img src={banner1} alt='banner' />
                 </div>

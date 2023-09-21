@@ -7,8 +7,10 @@ import Contact from '../Contact/Contact';
 import Featured from '../Featured/Featured';
 import Testimonials from '../Testimonials/Testimonials';
 import FoodMenu from '../FoodMenu/FoodMenu';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
     return (
         <div>
             <Banner></Banner>

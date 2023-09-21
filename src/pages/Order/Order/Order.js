@@ -9,8 +9,10 @@ import './Order.css';
 import { useParams } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
 import Error from '../../Shared/Error/Error';
+import useTitle from '../../../hooks/useTitle';
 
 const Order = () => {
+    useTitle('Order Food');
     const categories = ['offered', 'coffee', 'dessert', 'pizza', 'burger', 'soup', 'salad']
     const {category} = useParams();
     const initialIndex = categories.indexOf(category);
