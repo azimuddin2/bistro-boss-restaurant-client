@@ -12,7 +12,7 @@ const ContactUs = () => {
                 title={'Contact Us'}
                 details={'Would you like to try a dish?'}
             ></PageCover>
-            <div className='max-w-screen-lg lg:mx-auto mx-5 my-12'>
+            <div className='max-w-screen-lg lg:mx-auto mx-5 my-16'>
                 <OurLocation></OurLocation>
                 <ContactForm></ContactForm>
             </div>
