@@ -3,8 +3,10 @@ import PageCover from '../Shared/PageCover/PageCover';
 import contactUsImg from '../../assets/Images/others/contact-us.jpg';
 import OurLocation from './OurLocation/OurLocation';
 import ContactForm from './ContactForm/ContactForm';
+import useTitle from '../../hooks/useTitle';
 
 const ContactUs = () => {
+    useTitle('Contact Us');
     return (
         <section>
             <PageCover
