@@ -25,10 +25,10 @@ const Login = () => {
                 }}
             >
                 <div className='grid grid-cols-1 lg:grid-cols-2'>
-                    <div className=' h-screen flex justify-center items-center'>
+                    <div className='h-screen flex justify-center items-center'>
                         <img src={authenticationImg} alt="" className='w-full' />
                     </div>
-                    <div>
+                    <div className=''>
                         <LoginForm></LoginForm>
                     </div>
                 </div>
