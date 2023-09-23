@@ -69,6 +69,10 @@ const SignUpForm = () => {
                                 value: true,
                                 message: 'Password is required',
                             },
+                            minLength: {
+                                value: 6,
+                                message: 'Password must be 6 characters or longer',
+                            }
                         })}
                         type='password'
                         placeholder="Enter your password"
@@ -76,6 +80,7 @@ const SignUpForm = () => {
                     />
                     <label className="label pt-1">
                         {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 text-sm">{errors.password.message}</span>}
+                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500 text-sm">{errors.password.message}</span>}
                     </label>
                 </div>
 

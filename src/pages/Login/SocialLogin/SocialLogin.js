@@ -16,7 +16,7 @@ const SocialLogin = () => {
                 <button
                     className='btn btn-outline mr-3'
                 >
-                    <BsFacebook style={{color: '#3b5998'}} className='text-3xl'></BsFacebook>
+                    <BsFacebook style={{ color: '#3b5998' }} className='text-3xl'></BsFacebook>
                 </button>
 
                 <button
@@ -24,7 +24,6 @@ const SocialLogin = () => {
                 >
                     <BsGithub className='text-3xl'></BsGithub>
                 </button>
-
             </div>
         </div>
     );
