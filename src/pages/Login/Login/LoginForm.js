@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const LoginForm = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm();
@@ -10,8 +11,8 @@ const LoginForm = () => {
     };
 
     return (
-        <div className='px-12'>
-            <h1 className='text-2xl font-bold text-center my-8'>Login</h1>
+        <div className='lg:pr-16 px-5 lg:px-0'>
+            <h1 className='text-2xl font-bold text-center lg:mb-8'>Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
                     <label className="label">
@@ -57,10 +58,10 @@ const LoginForm = () => {
                         {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 text-sm">{errors.password.message}</span>}
                     </label>
                 </div>
-
                 <button style={{ background: '#D1A054' }} className='btn text-white w-full mt-5'>Login</button>
             </form>
             <p className='text-center mt-4 text-accent'>New here? <Link to="/signup" className='text-primary font-semibold underline'>Create a New Account</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

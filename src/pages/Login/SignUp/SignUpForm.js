@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const SignUpForm = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm();
@@ -10,8 +11,8 @@ const SignUpForm = () => {
     };
 
     return (
-        <div className='px-12'>
-            <h1 className='text-2xl font-bold text-center my-8'>Sign Up</h1>
+        <div className='lg:pl-16 px-5 lg:px-0'>
+            <h1 className='text-2xl font-bold text-center lg:mb-8'>Sign Up</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
                     <label className="label">
@@ -81,6 +82,7 @@ const SignUpForm = () => {
                 <button style={{ background: '#D1A054' }} className='btn text-white w-full mt-5'>Sign Up</button>
             </form>
             <p className='text-center mt-4 text-accent'>Already registered?<Link to="/login" className='text-primary font-semibold underline'> Go to login</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

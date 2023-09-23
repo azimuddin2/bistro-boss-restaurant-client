@@ -18,17 +18,17 @@ const Login = () => {
                 <img src={logo} alt="logo" className='mx-auto pt-2' style={{ height: "54px" }} />
             </Link>
             <div
-                className='max-w-screen-lg lg:mx-auto mx-5 h-screen shadow-2xl rounded-sm mt-3'
+                className='pt-12 pb-16 max-w-screen-lg lg:mx-auto mx-5 shadow-2xl rounded-sm mt-3'
                 style={{
                     backgroundImage: `url(${authenticationBgImg})`,
                     backgroundSize: 'cover'
                 }}
             >
-                <div className='grid grid-cols-1 lg:grid-cols-2'>
-                    <div className='h-screen flex justify-center items-center'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-10'>
+                    <div className='flex justify-center items-center'>
                         <img src={authenticationImg} alt="" className='w-full' />
                     </div>
-                    <div className=''>
+                    <div>
                         <LoginForm></LoginForm>
                     </div>
                 </div>
