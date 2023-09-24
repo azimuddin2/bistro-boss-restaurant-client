@@ -4,8 +4,10 @@ import authenticationBgImg from '../../../assets/Images/others/authentication-bg
 import authenticationImg from '../../../assets/Images/others/authentication.png';
 import logo from '../../../assets/Images/others/dark-logo.png';
 import SignUpForm from './SignUpForm';
+import useTitle from '../../../hooks/useTitle';
 
 const SignUp = () => {
+    useTitle('Sign Up')
     return (
         <section
             className='max-w-screen-xl mx-auto pb-20'

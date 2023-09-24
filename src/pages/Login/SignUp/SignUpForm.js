@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { MdOutlineErrorOutline } from 'react-icons/md';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignUpForm = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm();
+    const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = (data) => {
         console.log(data)
@@ -30,7 +33,7 @@ const SignUpForm = () => {
                         className="input rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                     <label className="label pt-1">
-                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500 text-sm">{errors.name.message}</span>}
+                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.name.message}</span>}
                     </label>
                 </div>
 
@@ -54,12 +57,12 @@ const SignUpForm = () => {
                         className="input rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                     <label className="label pt-1">
-                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500 text-sm">{errors.email.message}</span>}
-                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500 text-sm">{errors.email.message}</span>}
+                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.email.message}</span>}
+                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.email.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-control">
+                <div className="form-control relative">
                     <label className="label">
                         <span className="label-text font-semibold">Password*</span>
                     </label>
@@ -74,13 +77,25 @@ const SignUpForm = () => {
                                 message: 'Password must be 6 characters or longer',
                             }
                         })}
-                        type='password'
+                        type={showPassword ? 'text' : 'password'}
                         placeholder="Enter your password"
                         className="input rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     />
+                    <p
+                        onClick={() => setShowPassword(!showPassword)}
+                        className='absolute cursor-pointer'
+                        style={{ top: '52px', right: '12px' }}
+                    >
+                        {
+                            showPassword ?
+                                <FaEyeSlash className='text-gray-400'></FaEyeSlash>
+                                :
+                                <FaEye className='text-gray-400'></FaEye>
+                        }
+                    </p>
                     <label className="label pt-1">
-                        {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 text-sm">{errors.password.message}</span>}
-                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500 text-sm">{errors.password.message}</span>}
+                        {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.password.message}</span>}
+                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.password.message}</span>}
                     </label>
                 </div>
 
