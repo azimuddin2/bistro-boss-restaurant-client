@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { MdOutlineErrorOutline } from 'react-icons/md';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const LoginForm = () => {
+    const { signIn } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = (data) => {
-        console.log(data)
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
     };
 
     return (

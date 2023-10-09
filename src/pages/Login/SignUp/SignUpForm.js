@@ -1,16 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { MdOutlineErrorOutline } from 'react-icons/md';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const SignUpForm = () => {
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = (data) => {
-        console.log(data)
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                handleUpdateUserProfile(data.name);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    };
+
+    const handleUpdateUserProfile = (name) => {
+        const profile = {
+            displayName: name,
+        };
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => {
+                console.error(error);
+            })
     };
 
     return (
