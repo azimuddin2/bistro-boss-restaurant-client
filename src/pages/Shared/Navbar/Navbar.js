@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/Images/others/logo.png';
 import CustomLink from './CustomLink';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Navbar = () => {
+    const { user, logout } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logout()
+            .then(() => { })
+            .catch(error => {
+                console.log(error);
+            })
+    };
 
     const navOptions = <>
         <li><CustomLink to="/">Home</CustomLink></li>
         <li><CustomLink to="/menu">Our Menu</CustomLink></li>
         <li><CustomLink to="/order/coffee">Order Food</CustomLink></li>
         <li><CustomLink to="/contact">Contact Us</CustomLink></li>
-        <li><CustomLink to="/login">Login</CustomLink></li>
+        <li>
+            {
+                user?.uid ?
+                    <button onClick={handleLogout} className='font-medium uppercase hover:text-white'>Sign Out</button>
+                    :
+                    <CustomLink to="/login">Login</CustomLink>
+            }
+        </li>
     </>
 
     return (
