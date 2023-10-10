@@ -3,6 +3,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { BsGithub, BsFacebook } from 'react-icons/bs';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import swal from 'sweetalert';
 
 const SocialLogin = () => {
     const { signInWithGoogle, signInWithFacebook, signInWithGithub } = useContext(AuthContext);
@@ -16,9 +17,19 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                swal({
+                    title: "User Login Successful!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                });
             })
             .catch(error => {
-                console.log(error);
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
             })
     };
 
@@ -27,9 +38,19 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                swal({
+                    title: "User Login Successful!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                });
             })
             .catch(error => {
-                console.log(error);
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
             })
     };
 
@@ -38,9 +59,19 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                swal({
+                    title: "User Login Successful!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                });
             })
             .catch(error => {
-                console.log(error);
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
             })
     };
 

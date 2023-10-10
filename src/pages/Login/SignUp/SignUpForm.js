@@ -5,6 +5,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { MdOutlineErrorOutline } from 'react-icons/md';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../../providers/AuthProvider';
+import swal from 'sweetalert';
 
 const SignUpForm = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -17,9 +18,19 @@ const SignUpForm = () => {
                 const user = result.user;
                 console.log(user);
                 handleUpdateUserProfile(data.name);
+                swal({
+                    title: "User SignUp Successful!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                });
             })
             .catch(error => {
-                console.error(error);
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
             })
     };
 
@@ -30,7 +41,12 @@ const SignUpForm = () => {
         updateUserProfile(profile)
             .then(() => { })
             .catch(error => {
-                console.error(error);
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
             })
     };
 

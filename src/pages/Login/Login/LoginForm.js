@@ -5,6 +5,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { MdOutlineErrorOutline } from 'react-icons/md';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../../providers/AuthProvider';
+import swal from 'sweetalert';
 
 const LoginForm = () => {
     const { signIn } = useContext(AuthContext);
@@ -16,9 +17,19 @@ const LoginForm = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                swal({
+                    title: "User Login Successful!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                });
             })
             .catch(error => {
-                console.log(error);
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
             })
     };
 

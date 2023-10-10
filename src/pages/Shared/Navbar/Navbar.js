@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/Images/others/logo.png';
 import CustomLink from './CustomLink';
 import { AuthContext } from '../../../providers/AuthProvider';
+import swal from 'sweetalert';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -11,7 +12,12 @@ const Navbar = () => {
         logout()
             .then(() => { })
             .catch(error => {
-                console.log(error);
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
             })
     };
 
