@@ -4,9 +4,14 @@ import { BsGithub, BsFacebook } from 'react-icons/bs';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import swal from 'sweetalert';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
     const { signInWithGoogle, signInWithFacebook, signInWithGithub } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
@@ -22,6 +27,7 @@ const SocialLogin = () => {
                     text: "You clicked the button!",
                     icon: "success",
                 });
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 swal({
@@ -43,6 +49,7 @@ const SocialLogin = () => {
                     text: "You clicked the button!",
                     icon: "success",
                 });
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 swal({
@@ -64,6 +71,7 @@ const SocialLogin = () => {
                     text: "You clicked the button!",
                     icon: "success",
                 });
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 swal({

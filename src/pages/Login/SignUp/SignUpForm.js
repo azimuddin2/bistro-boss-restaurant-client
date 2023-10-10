@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { MdOutlineErrorOutline } from 'react-icons/md';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -11,6 +11,10 @@ const SignUpForm = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const onSubmit = (data) => {
         createUser(data.email, data.password)
@@ -23,6 +27,7 @@ const SignUpForm = () => {
                     text: "You clicked the button!",
                     icon: "success",
                 });
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 swal({
