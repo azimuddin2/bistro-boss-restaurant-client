@@ -1,0 +1,15 @@
+/* responsive mobile device */
+@media screen and (max-width: 576px) {
+    .navbar-end-modify {
+        width: 50%;
+        justify-content: flex-end;
+    }
+}
+
+/* responsive tablet device */
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    .navbar-end-modify {
+        width: 50%;
+        justify-content: flex-end;
+    }
+}
