@@ -1,5 +1,9 @@
 import React from 'react';
+import { BiSolidAddToQueue } from 'react-icons/bi';
+import { FaCalendarAlt, FaClipboardList, FaHome, FaShoppingBasket, FaShoppingCart, FaUsers, FaWallet } from 'react-icons/fa';
+import { MdContactMail, MdManageHistory, MdRateReview } from 'react-icons/md';
 import { Link, Outlet } from 'react-router-dom';
+import logo from '../assets/Images/others/dark-logo.png';
 
 const Dashboard = () => {
     return (
@@ -11,27 +15,31 @@ const Dashboard = () => {
                     <Outlet></Outlet>
                 </div>
                 <div className="drawer-side lg:bg-[#D1A054]">
+                    <Link to='/'>
+                        <img src={logo} alt="Logo" className='mx-auto pt-10 pb-5'/>
+                    </Link>
                     <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-64 lg:bg-inherit bg-base-100 text-base-content">
                         {/* user path */}
-                        <li><Link to='/dashboard'>User Home</Link></li>
-                        <li><Link to='/dashboard/my-cart'>My Cart</Link></li>
-                        <li><Link to='/dashboard/reservation'>Reservation</Link></li>
-                        <li><Link to='/dashboard/payment-history'>Payment History</Link></li>
-                        <li><Link to='/dashboard/add-review'>Add Review</Link></li>
+                        <li><Link to='/dashboard'><FaHome className='text-xl'></FaHome> User Home</Link></li>
+                        <li><Link to='/dashboard/my-cart'><FaShoppingCart className='text-xl'></FaShoppingCart> My Cart</Link></li>
+                        <li><Link to='/dashboard/reservation'><FaCalendarAlt className='text-xl'></FaCalendarAlt> Reservation</Link></li>
+                        <li><Link to='/dashboard/payment-history'><FaWallet className='text-xl'></FaWallet> Payment History</Link></li>
+                        <li><Link to='/dashboard/add-review'><MdRateReview className='text-xl'></MdRateReview> Add Review</Link></li>
 
                         {/* admin path */}
-                        {/* <li><Link to='/dashboard'>Admin Home</Link></li>
-                        <li><Link to='/dashboard/add-item'>Add Item</Link></li>
-                        <li><Link to='/dashboard/manage-items'>Manage Items</Link></li>
-                        <li><Link to='/dashboard/manage-bookings'>Manage Bookings</Link></li>
-                        <li><Link to='/dashboard/all-users'>All Users</Link></li> */}
+                        {/* <div className="divider divide-white"></div>
+                        <li><Link to='/dashboard'><FaHome className='text-xl'></FaHome> Admin Home</Link></li>
+                        <li><Link to='/dashboard/add-item'><BiSolidAddToQueue className='text-xl'></BiSolidAddToQueue> Add Item</Link></li>
+                        <li><Link to='/dashboard/manage-items'><MdManageHistory className='text-xl'></MdManageHistory>Manage Items</Link></li>
+                        <li><Link to='/dashboard/manage-bookings'><MdManageHistory className='text-xl'></MdManageHistory> Manage Bookings</Link></li>
+                        <li><Link to='/dashboard/all-users'><FaUsers className='text-xl'></FaUsers>All Users</Link></li> */}
 
-                        {/* normal path */}
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/menu'>Our Menu</Link></li>
-                        <li><Link to='/order/coffee'>Order Food</Link></li>
-                        <li><Link to='/contact'>Contact Us</Link></li>
+                        <div className="divider divide-white"></div>
+                        <li><Link to='/'><FaHome className='text-xl'></FaHome> Home</Link></li>
+                        <li><Link to='/menu'><FaClipboardList className='text-xl'></FaClipboardList> Our Menu</Link></li>
+                        <li><Link to='/order/coffee'><FaShoppingBasket className='text-xl'></FaShoppingBasket> Order Food</Link></li>
+                        <li><Link to='/contact'><MdContactMail className='text-xl'></MdContactMail> Contact Us</Link></li>
                     </ul>
                 </div>
             </div>
