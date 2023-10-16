@@ -13,6 +13,7 @@ import MyCart from "../pages/Dashboard/UserPages/MyCart/MyCart";
 import Reservation from "../pages/Dashboard/UserPages/Reservation/Reservation";
 import PaymentHistory from "../pages/Dashboard/UserPages/PaymentHistory/PaymentHistory";
 import AddReview from "../pages/Dashboard/UserPages/AddReview/AddReview";
+import MyBooking from "../pages/Dashboard/UserPages/MyBooking/MyBooking";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/add-review',
                 element: <AddReview></AddReview>
+            },
+            {
+                path: '/dashboard/my-booking',
+                element: <MyBooking></MyBooking>
             },
         ],
     },
