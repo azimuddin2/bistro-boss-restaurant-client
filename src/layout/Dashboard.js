@@ -1,7 +1,7 @@
 import React from 'react';
 import { BiSolidAddToQueue } from 'react-icons/bi';
 import { FaCalendarAlt, FaClipboardList, FaHome, FaShoppingBasket, FaShoppingCart, FaUsers, FaWallet } from 'react-icons/fa';
-import { MdContactMail, MdLibraryBooks, MdManageHistory, MdRateReview } from 'react-icons/md';
+import { MdContactMail, MdLibraryBooks, MdManageHistory, MdMarkEmailRead, MdRateReview } from 'react-icons/md';
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../assets/Images/others/dark-logo.png';
 import ActiveLink from '../components/ActiveLink/ActiveLink';
@@ -61,17 +61,62 @@ const Dashboard = () => {
 
                         {/* admin path */}
                         {/* <div className="divider divide-white"></div>
-                        <li><Link to='/dashboard'><FaHome className='text-xl'></FaHome> Admin Home</Link></li>
-                        <li><Link to='/dashboard/add-item'><BiSolidAddToQueue className='text-xl'></BiSolidAddToQueue> Add Item</Link></li>
-                        <li><Link to='/dashboard/manage-items'><MdManageHistory className='text-xl'></MdManageHistory>Manage Items</Link></li>
-                        <li><Link to='/dashboard/manage-bookings'><MdManageHistory className='text-xl'></MdManageHistory> Manage Bookings</Link></li>
-                        <li><Link to='/dashboard/all-users'><FaUsers className='text-xl'></FaUsers>All Users</Link></li> */}
+                        <li>
+                            <ActiveLink to='/dashboard'>
+                                <FaHome className='text-xl'></FaHome>
+                                <span>Admin Home</span>
+                            </ActiveLink>
+                        </li>
+                        <li>
+                            <ActiveLink to='/dashboard/add-item'>
+                                <BiSolidAddToQueue className='text-xl'></BiSolidAddToQueue>
+                                <span>Add Item</span>
+                            </ActiveLink>
+                        </li>
+                        <li>
+                            <ActiveLink to='/dashboard/manage-items'>
+                                <MdManageHistory className='text-xl'></MdManageHistory>
+                                <span>Manage Items</span>
+                            </ActiveLink>
+                        </li>
+                        <li>
+                            <ActiveLink to='/dashboard/manage-bookings'>
+                                <MdManageHistory className='text-xl'></MdManageHistory>
+                                <span>Manage Bookings</span>
+                            </ActiveLink>
+                        </li>
+                        <li>
+                            <ActiveLink to='/dashboard/all-users'>
+                                <FaUsers className='text-xl'></FaUsers>
+                                <span>All Users</span>
+                            </ActiveLink>
+                        </li> */}
 
                         <div className="divider divide-white"></div>
-                        <li><Link to='/'><FaHome className='text-xl'></FaHome> Home</Link></li>
-                        <li><Link to='/menu'><FaClipboardList className='text-xl'></FaClipboardList> Our Menu</Link></li>
-                        <li><Link to='/order/coffee'><FaShoppingBasket className='text-xl'></FaShoppingBasket> Order Food</Link></li>
-                        <li><Link to='/contact'><MdContactMail className='text-xl'></MdContactMail> Contact Us</Link></li>
+                        <li>
+                            <ActiveLink to='/'>
+                                <FaHome className='text-xl'></FaHome>
+                                <span>Home</span>
+                            </ActiveLink>
+                        </li>
+                        <li>
+                            <ActiveLink to='/menu'>
+                                <FaClipboardList className='text-xl'></FaClipboardList>
+                                <span>Our Menu</span>
+                            </ActiveLink>
+                        </li>
+                        <li>
+                            <ActiveLink to='/order/coffee'>
+                                <FaShoppingBasket className='text-xl'></FaShoppingBasket>
+                                <span>Order Food</span>
+                            </ActiveLink>
+                        </li>
+                        <li>
+                            <ActiveLink to='/contact'>
+                                <MdMarkEmailRead className='text-xl'></MdMarkEmailRead>
+                                <span>Contact Us</span>
+                            </ActiveLink>
+                        </li>
                     </ul>
                 </div>
             </div>

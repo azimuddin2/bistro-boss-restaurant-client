@@ -1,10 +1,11 @@
 import React from 'react';
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const AddReview = () => {
     return (
-        <div>
-            <h1 className='text-4xl'>Add Review!!</h1>
-        </div>
+        <section className='my-10'>
+            <SectionTitle subHeading={'Sharing is Caring!'} heading={'Give a Review'}></SectionTitle>
+        </section>
     );
 };
 

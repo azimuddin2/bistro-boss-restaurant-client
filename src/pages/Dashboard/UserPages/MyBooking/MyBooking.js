@@ -1,10 +1,11 @@
 import React from 'react';
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const MyBooking = () => {
     return (
-        <div>
-            <h1 className='text-4xl'>My Booking</h1>
-        </div>
+        <section className='my-10'>
+            <SectionTitle subHeading={'Excellent Ambience'} heading={'My Bookings'}></SectionTitle>
+        </section>
     );
 };
 

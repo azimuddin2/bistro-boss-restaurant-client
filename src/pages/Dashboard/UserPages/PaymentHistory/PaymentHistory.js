@@ -1,10 +1,11 @@
 import React from 'react';
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const PaymentHistory = () => {
     return (
-        <div>
-            <h1 className='text-4xl'>Payment History!!</h1>
-        </div>
+        <section className='my-10'>
+            <SectionTitle subHeading={'At a Glance!'} heading={'Payment History'}></SectionTitle>
+        </section>
     );
 };
 

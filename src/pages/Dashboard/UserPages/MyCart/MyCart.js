@@ -1,10 +1,11 @@
 import React from 'react';
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const MyCart = () => {
     return (
-        <div>
-            <h1 className='text-4xl'>My Cart!!</h1>
-        </div>
+        <section className='my-10'>
+            <SectionTitle subHeading={'My Cart'} heading={'WANNA ADD MORE?'}></SectionTitle>
+        </section>
     );
 };
 
