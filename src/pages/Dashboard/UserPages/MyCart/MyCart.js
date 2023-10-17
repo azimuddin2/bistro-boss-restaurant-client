@@ -19,16 +19,16 @@ const MyCart = () => {
 
     return (
         <section className='max-h-screen'>
-            <div className='bg-[#F6F6F6] py-10'>
+            <div className='bg-[#F6F6F6] pb-20 pt-10'>
                 <SectionTitle subHeading={'My Cart'} heading={'WANNA ADD MORE?'}></SectionTitle>
-                <div className=' w-11/12 lg:w-4/5 lg:mx-auto bg-white p-5 lg:p-10'>
+                <div className='w-11/12 lg:w-3/4 mx-auto bg-white p-5 lg:p-10'>
                     <div className='flex justify-between items-center mb-6'>
                         <h2 className='lg:text-xl uppercase font-semibold font-family text-secondary'>Total Orders: {carts?.length}</h2>
                         <h2 className='lg:text-xl uppercase font-semibold font-family text-secondary'>Total Price: ${totalPrice}</h2>
                         <button className='btn btn-primary bg-[#D1A054] text-white border-none btn-sm font-family rounded-sm'>Pay</button>
                     </div>
                     <div className="overflow-x-auto">
-                        <table className="table w-full uppercase font-family">
+                        <table className="table uppercase font-family">
                             <thead className='bg-[#D1A054] text-white'>
                                 <tr className='font-normal'>
                                     <th></th>
