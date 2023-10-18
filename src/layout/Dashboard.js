@@ -5,8 +5,11 @@ import { MdContactMail, MdLibraryBooks, MdManageHistory, MdMarkEmailRead, MdRate
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../assets/Images/others/dark-logo.png';
 import ActiveLink from '../components/ActiveLink/ActiveLink';
+import useCart from '../hooks/useCart';
 
 const Dashboard = () => {
+    const [carts] = useCart();
+
     return (
         <div>
             {/* <Navbar></Navbar> */}
@@ -30,7 +33,10 @@ const Dashboard = () => {
                         </li>
                         <li>
                             <ActiveLink to='/dashboard/my-cart'>
-                                <FaShoppingCart className='text-xl'></FaShoppingCart>
+                                <div className="indicator cursor-pointer">
+                                    <FaShoppingCart className='text-xl'></FaShoppingCart>
+                                    <span className="bg-primary badge badge-sm indicator-item border-none text-white">{carts?.length}</span>
+                                </div>
                                 <span>My Cart</span>
                             </ActiveLink>
                         </li>

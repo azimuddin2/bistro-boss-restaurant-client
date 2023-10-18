@@ -1,8 +1,35 @@
 import React from 'react';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
+import swal from 'sweetalert';
 
-const CartRow = ({ row, index }) => {
-    const { name, image, price } = row;
+const CartRow = ({ row, index, refetch }) => {
+    const { _id, name, image, price } = row;
+
+    const handleDelete = (id) => {
+        swal({
+            title: "Are you sure?",
+            text: `Food Name - ${name}`,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`http://localhost:5000/carts/${id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            if (result.deletedCount > 0) {
+                                refetch();
+                                swal("Poof! Your imaginary file has been deleted!", {
+                                    icon: "success",
+                                });
+                            }
+                        })
+                }
+            });
+    };
 
     return (
         <tr className='text-secondary font-semibold'>
@@ -15,7 +42,12 @@ const CartRow = ({ row, index }) => {
             <td>{name}</td>
             <td>${price}</td>
             <td>
-                <RiDeleteBin5Fill className='text-2xl text-red-600 cursor-pointer'></RiDeleteBin5Fill>
+                <span className='tooltip' data-tip="Delete">
+                    <RiDeleteBin5Fill
+                        onClick={() => handleDelete(_id)}
+                        className='text-2xl text-red-600 cursor-pointer'
+                    ></RiDeleteBin5Fill>
+                </span>
             </td>
         </tr>
     );
