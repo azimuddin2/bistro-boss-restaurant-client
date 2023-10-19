@@ -22,9 +22,10 @@ const SignUpForm = () => {
                 const user = result.user;
                 console.log(user);
                 handleUpdateUserProfile(data.name);
+                saveUserDatabase(data.name, data.email);
                 swal({
                     title: "User SignUp Successful!",
-                    text: "You clicked the button!",
+                    text: `Welcome - ${data.name}`,
                     icon: "success",
                 });
                 navigate(from, { replace: true });
@@ -52,6 +53,22 @@ const SignUpForm = () => {
                     icon: "error",
                     button: "Try again",
                 });
+            })
+    };
+
+    const saveUserDatabase = (name, email) => {
+        const user = { name, email };
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
             })
     };
 

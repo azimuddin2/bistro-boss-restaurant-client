@@ -23,7 +23,7 @@ const LoginForm = () => {
                 console.log(user);
                 swal({
                     title: "User Login Successful!",
-                    text: "You clicked the button!",
+                    text: `Welcome - ${user?.displayName}`,
                     icon: "success",
                 });
                 navigate(from, { replace: true });

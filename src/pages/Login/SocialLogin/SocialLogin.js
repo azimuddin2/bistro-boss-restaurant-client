@@ -22,9 +22,10 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                saveUserDatabase(user.displayName, user.email);
                 swal({
                     title: "User Login Successful!",
-                    text: "You clicked the button!",
+                    text: `Welcome - ${user?.displayName}`,
                     icon: "success",
                 });
                 navigate(from, { replace: true });
@@ -80,6 +81,22 @@ const SocialLogin = () => {
                     icon: "error",
                     button: "Try again",
                 });
+            })
+    };
+
+    const saveUserDatabase = (name, email) => {
+        const user = { name, email };
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
             })
     };
 
