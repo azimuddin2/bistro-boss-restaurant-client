@@ -14,6 +14,7 @@ import Reservation from "../pages/Dashboard/UserPages/Reservation/Reservation";
 import PaymentHistory from "../pages/Dashboard/UserPages/PaymentHistory/PaymentHistory";
 import AddReview from "../pages/Dashboard/UserPages/AddReview/AddReview";
 import MyBooking from "../pages/Dashboard/UserPages/MyBooking/MyBooking";
+import AllUsers from "../pages/Dashboard/AdminPages/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
     {
@@ -74,6 +75,12 @@ const router = createBrowserRouter([
                 path: '/dashboard/my-booking',
                 element: <MyBooking></MyBooking>
             },
+
+
+            {
+                path: '/dashboard/all-users',
+                element: <AllUsers></AllUsers>
+            }
         ],
     },
 
