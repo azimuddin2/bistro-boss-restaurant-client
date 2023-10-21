@@ -26,7 +26,7 @@ const AllUsers = () => {
 
     return (
         <section className='max-h-screen'>
-            <div className='bg-[#F6F6F6] pb-20 p-10 h-screen'>
+            <div className='bg-[#F6F6F6] pb-20 p-10 h-full'>
                 <SectionTitle subHeading={'How Many?'} heading={'Manage All Users'}></SectionTitle>
                 <div className='w-11/12 lg:w-3/4 mx-auto bg-white p-5 lg:p-10'>
                     <div className='mb-3'>
