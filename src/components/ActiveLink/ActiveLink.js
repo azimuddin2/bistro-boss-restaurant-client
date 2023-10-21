@@ -9,8 +9,8 @@ const ActiveLink = ({ children, to, ...props }) => {
         <Link
             className='uppercase font-semibold flex items-center mb-2 font-family'
             style={{
-                color: match ? '#fff' : '#151515',
-                borderLeft: match ? '2px solid #fff' : 'none',
+                color: match ? '#D99904' : '#151515',
+                borderLeft: match ? '3px solid #D99904' : 'none',
                 borderRadius: '0px',
             }}
             to={to}

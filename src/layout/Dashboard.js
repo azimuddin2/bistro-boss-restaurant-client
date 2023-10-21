@@ -21,7 +21,7 @@ const Dashboard = () => {
                 <div className="drawer-content">
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side lg:bg-[#D1A054]">
+                <div className="drawer-side">
                     <Link to='/'>
                         <img src={logo} alt="Logo" className='mx-auto pt-10 pb-5' />
                     </Link>

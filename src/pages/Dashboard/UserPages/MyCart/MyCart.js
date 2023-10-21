@@ -21,10 +21,10 @@ const MyCart = () => {
     }
 
     return (
-        <section className='h-screen'>
+        <section className='max-h-screen'>
             {
                 carts.length > 0 ?
-                    <div className='bg-[#F6F6F6] pb-20 pt-10'>
+                    <div className='bg-[#F6F6F6] pb-20 pt-10 h-screen'>
                         <SectionTitle subHeading={'My Cart'} heading={'WANNA ADD MORE?'}></SectionTitle>
                         <div className='w-11/12 lg:w-3/4 mx-auto bg-white p-5 lg:p-10'>
                             <div className='flex justify-between items-center mb-6'>
