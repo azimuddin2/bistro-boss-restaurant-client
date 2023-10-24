@@ -4,15 +4,16 @@ import { useQuery } from '@tanstack/react-query';
 import Error from '../../../Shared/Error/Error';
 import Loading from '../../../Shared/Loading/Loading';
 import UserRow from './UserRow';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const AllUsers = () => {
+    const [axiosSecure] = useAxiosSecure();
 
     const { data: users, isLoading, error, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
-            const data = await res.json();
-            return data;
+            const res = await axiosSecure.get('/users');
+            return res.data;
         }
     });
 

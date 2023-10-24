@@ -6,12 +6,11 @@ import { Link, Outlet } from 'react-router-dom';
 import logo from '../assets/Images/others/dark-logo.png';
 import ActiveLink from '../components/ActiveLink/ActiveLink';
 import useCart from '../hooks/useCart';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
     const [carts] = useCart();
-
-    // TODO: load data from the server to have dynamic isAdmin based on data
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     return (
         <div>
