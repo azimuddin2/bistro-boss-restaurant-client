@@ -30,7 +30,7 @@ const Dashboard = () => {
                             isAdmin ?
                                 <>
                                     <li>
-                                        <ActiveLink to='/dashboard'>
+                                        <ActiveLink to='/dashboard/admin-home'>
                                             <FaHome className='text-xl'></FaHome>
                                             <span>Admin Home</span>
                                         </ActiveLink>
@@ -63,7 +63,7 @@ const Dashboard = () => {
                                 :
                                 <>
                                     <li>
-                                        <ActiveLink to='/dashboard'>
+                                        <ActiveLink to='/dashboard/user-home'>
                                             <FaHome className='text-xl'></FaHome>
                                             <span>User Home</span>
                                         </ActiveLink>
