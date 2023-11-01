@@ -31,7 +31,7 @@ const AddItem = () => {
                             })}
                             type='text'
                             placeholder="Recipe name"
-                            className="input rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                            className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                         />
                         <label className="label pt-1">
                             {errors.name?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.name.message}</span>}

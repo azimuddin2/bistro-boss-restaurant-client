@@ -13,8 +13,8 @@ const Home = () => {
     useTitle('Home');
     return (
         <div>
-            {/* <Banner></Banner> */}
-            {/* <Category></Category> */}
+            <Banner></Banner>
+            <Category></Category>
             <BistroBossInfo></BistroBossInfo>
             <PopularMenu></PopularMenu>
             <Contact></Contact>
