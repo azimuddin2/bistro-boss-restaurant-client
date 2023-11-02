@@ -11,3 +11,11 @@
     background: linear-gradient(90deg, #61451a 0%, #a0732a 100%);
     transition:ease-in;
 }
+
+
+/* responsive mobile device */
+@media screen and (max-width: 576px) {
+    .button{
+        width: 100%;
+    }
+}
