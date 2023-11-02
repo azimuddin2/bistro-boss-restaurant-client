@@ -20,6 +20,7 @@ import AdminRoute from "./AdminRoute";
 import AddItem from "../pages/Dashboard/AdminPages/AddItem/AddItem";
 import ManageItems from "../pages/Dashboard/AdminPages/ManageItems/ManageItems";
 import ManageBookings from "../pages/Dashboard/AdminPages/ManageBookings/ManageBookings";
+import UpdateItem from "../pages/Dashboard/AdminPages/UpdateItem/UpdateItem";
 
 const router = createBrowserRouter([
     {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
             {
                 path: 'manage-items',
                 element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+            },
+            {
+                path: 'update-item/:id',
+                element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>
             },
             {
                 path: 'manage-bookings',
