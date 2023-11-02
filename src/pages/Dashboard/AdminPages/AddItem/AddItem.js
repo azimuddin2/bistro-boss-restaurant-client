@@ -7,11 +7,13 @@ import Button from '../../../../components/Button/Button';
 import { BiImageAdd } from 'react-icons/bi';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
 
 const AddItem = () => {
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const categories = ['offered', 'coffee', 'dessert', 'pizza', 'burger', 'soup', 'salad'];
+    const navigate = useNavigate();
 
     const imgHostingToken = process.env.REACT_APP_Image_Upload_token;
     const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${imgHostingToken}`
@@ -43,8 +45,9 @@ const AddItem = () => {
                                 swal({
                                     title: "Item added successfully",
                                     icon: "success",
-                                    timer: 2000,
+                                    timer: 3000,
                                 });
+                                navigate('/dashboard/manage-items');
                             }
                         })
                 }

@@ -2,9 +2,13 @@ import React from 'react';
 import swal from 'sweetalert';
 import { BiSolidEdit } from 'react-icons/bi';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { useNavigate } from 'react-router-dom';
 
 const MenuRow = ({ index, menuRow, refetch }) => {
+    const [axiosSecure] = useAxiosSecure();
     const { _id, image, name, category, price } = menuRow;
+    const navigate = useNavigate();
 
     const handleDelete = (id) => {
         swal({
@@ -16,14 +20,11 @@ const MenuRow = ({ index, menuRow, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/menu/${id}`, {
-                        method: 'DELETE'
-                    })
-                        .then(res => res.json())
+                    axiosSecure.delete(`/menu/${id}`)
                         .then(result => {
-                            if (result.deletedCount > 0) {
+                            if (result.data.deletedCount > 0) {
                                 refetch();
-                                swal("Poof! Your imaginary file has been deleted!", {
+                                swal("Poof! Your Product has been deleted!", {
                                     icon: "success",
                                 });
                             }
@@ -46,6 +47,7 @@ const MenuRow = ({ index, menuRow, refetch }) => {
             <td>
                 <span className='tooltip' data-tip="Edit">
                     <BiSolidEdit
+                        onClick={() => navigate(`/dashboard/update-item/${_id}`)}
                         className='text-2xl text-primary cursor-pointer'
                     ></BiSolidEdit>
                 </span>
