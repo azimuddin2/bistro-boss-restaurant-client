@@ -2,6 +2,7 @@ import React from 'react';
 import { BiSolidAddToQueue } from 'react-icons/bi';
 import { FaCalendarAlt, FaClipboardList, FaHome, FaShoppingBasket, FaShoppingCart, FaUsers, FaWallet } from 'react-icons/fa';
 import { MdLibraryBooks, MdManageHistory, MdMarkEmailRead, MdRateReview } from 'react-icons/md';
+import { RiFileList3Fill } from 'react-icons/ri';
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../assets/Images/others/dark-logo.png';
 import ActiveLink from '../components/ActiveLink/ActiveLink';
@@ -49,7 +50,7 @@ const Dashboard = () => {
                                     </li>
                                     <li>
                                         <ActiveLink to='/dashboard/manage-bookings'>
-                                            <MdManageHistory className='text-xl'></MdManageHistory>
+                                            <RiFileList3Fill className='text-xl'></RiFileList3Fill>
                                             <span>Manage Bookings</span>
                                         </ActiveLink>
                                     </li>
