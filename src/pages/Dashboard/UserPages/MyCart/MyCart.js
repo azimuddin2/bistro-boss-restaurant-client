@@ -30,7 +30,9 @@ const MyCart = () => {
                             <div className='flex justify-between items-center mb-6'>
                                 <h2 className='lg:text-xl uppercase font-bold font-family text-secondary'>Total Orders: {carts?.length}</h2>
                                 <h2 className='lg:text-xl uppercase font-bold font-family text-secondary'>Total Price: ${totalPrice.toFixed(2)}</h2>
-                                <button disabled={carts.length < 1} className='btn btn-primary bg-[#D1A054] text-white border-none btn-sm font-family rounded-sm'>Pay</button>
+                                <Link to={'/dashboard/payment'}>
+                                    <button disabled={carts.length < 1} className='btn btn-primary bg-[#D1A054] text-white border-none btn-sm font-family rounded-sm'>Pay</button>
+                                </Link>
                             </div>
                             <div className="overflow-x-auto">
                                 <table className="table uppercase font-family">
