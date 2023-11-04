@@ -11,7 +11,7 @@ const CustomLink = ({ children, to, ...props }) => {
             style={{
                 color: match ? '#D99904' : 'white',
                 fontWeight: match ? '700' : '500',
-                borderBottom: match ? '2px solid #D99904' : 'none',
+                border: match ? '2px solid #D99904' : 'none',
             }}
             to={to}
             {...props}
