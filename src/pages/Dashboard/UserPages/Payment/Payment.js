@@ -8,7 +8,7 @@ import useCart from '../../../../hooks/useCart';
 const stripePromise = loadStripe(process.env.REACT_APP_Payment_Gateway_PK);
 
 const Payment = () => {
-    const [carts] = useCart();
+    const [carts, refetch] = useCart();
 
     const totalPrice = carts?.reduce((sum, item) => item.price + sum, 0);
     const price = parseFloat(totalPrice.toFixed(2))
@@ -19,7 +19,11 @@ const Payment = () => {
             <div className='w-11/12 lg:w-1/2 mx-auto bg-white p-5 lg:p-10'>
                 <h1 className='text-center font-family text-secondary font-semibold text-lg mb-5'>Total Price: ${totalPrice.toFixed(2)}</h1>
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm price={price}></CheckoutForm>
+                    <CheckoutForm
+                        carts={carts}
+                        refetch={refetch}
+                        price={price}
+                    ></CheckoutForm>
                 </Elements>
             </div>
         </section>

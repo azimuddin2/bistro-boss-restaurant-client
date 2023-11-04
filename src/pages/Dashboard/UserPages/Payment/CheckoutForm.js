@@ -3,13 +3,18 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import useAuth from '../../../../hooks/useAuth';
+import './CheckoutForm.css';
+import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ carts, refetch, price }) => {
     const [axiosSecure] = useAxiosSecure();
     const stripe = useStripe();
     const elements = useElements();
-    const {user} = useAuth();
+    const { user } = useAuth();
     const [clientSecret, setClientSecret] = useState('');
+    const [processing, setProcessing] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price })
@@ -17,7 +22,7 @@ const CheckoutForm = ({ price }) => {
                 console.log(res.data.clientSecret);
                 setClientSecret(res.data.clientSecret);
             })
-    }, [])
+    }, [price, axiosSecure])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -44,6 +49,8 @@ const CheckoutForm = ({ price }) => {
             console.log('payment method', paymentMethod)
         }
 
+        setProcessing(true);
+
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -57,17 +64,48 @@ const CheckoutForm = ({ price }) => {
             },
         );
 
-        if(confirmError){
+        if (confirmError) {
             console.log(confirmError)
         }
 
         console.log('Payment intent', paymentIntent)
+        setProcessing(false);
+        if (paymentIntent.status === "succeeded") {
+            const transactionId = paymentIntent.id;
+
+            // TODO: payment information to the server save
+            const paymentInfo = {
+                email: user?.email,
+                transactionId,
+                price,
+                category: 'Food Order',
+                date: new Date(),
+                status: 'pending',
+                quantity: carts.length,
+                cartItems: carts?.map(item => item._id),
+                menuItems: carts?.map(item => item.menuItemId),
+                itemNames: carts?.map(item => item.name),
+            };
+            axiosSecure.post('/payments', paymentInfo)
+                .then(res => {
+                    if (res.data.insertResult.insertedId || res.data.deleteResult.deletedCount) {
+                        refetch();
+                        swal({
+                            title: "Congratulation!",
+                            text: `Transaction Id: ${transactionId}`,
+                            icon: "success",
+                        });
+                        navigate('/dashboard/payment-history');
+                    }
+                })
+        }
 
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <CardElement
+                className='payment-input-field'
                 options={{
                     style: {
                         base: {
@@ -84,9 +122,9 @@ const CheckoutForm = ({ price }) => {
                 }}
             />
             <button
-                className='btn btn-primary btn-sm rounded-sm mt-5 text-white'
+                className='payment-btn'
                 type="submit"
-                disabled={!stripe || !clientSecret}
+                disabled={!stripe || !clientSecret || processing}
             >
                 Pay
             </button>
