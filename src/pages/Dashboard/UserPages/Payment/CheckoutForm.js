@@ -72,6 +72,7 @@ const CheckoutForm = ({ carts, refetch, price }) => {
         setProcessing(false);
         if (paymentIntent.status === "succeeded") {
             const transactionId = paymentIntent.id;
+            const date = new Date();
 
             // TODO: payment information to the server save
             const paymentInfo = {
@@ -79,7 +80,7 @@ const CheckoutForm = ({ carts, refetch, price }) => {
                 transactionId,
                 price,
                 category: 'Food Order',
-                date: new Date(),
+                date,
                 status: 'pending',
                 quantity: carts.length,
                 cartItems: carts?.map(item => item._id),
