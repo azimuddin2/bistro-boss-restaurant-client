@@ -79,6 +79,44 @@ const Reservation = () => {
                             {errors.price?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.price.message}</span>}
                         </label>
                     </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text font-semibold">Price*</span>
+                        </label>
+                        <input
+                            {...register("price", {
+                                required: {
+                                    value: true,
+                                    message: 'Price is required',
+                                }
+                            })}
+                            type='number'
+                            placeholder="Price"
+                            className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        />
+                        <label className="label pt-1">
+                            {errors.price?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.price.message}</span>}
+                        </label>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text font-semibold">Price*</span>
+                        </label>
+                        <input
+                            {...register("price", {
+                                required: {
+                                    value: true,
+                                    message: 'Price is required',
+                                }
+                            })}
+                            type='number'
+                            placeholder="Price"
+                            className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        />
+                        <label className="label pt-1">
+                            {errors.price?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.price.message}</span>}
+                        </label>
+                    </div>
 
                     <div>
                         <Button>Book A Table</Button>
