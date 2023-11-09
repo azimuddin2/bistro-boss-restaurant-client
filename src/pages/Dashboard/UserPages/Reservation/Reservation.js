@@ -46,8 +46,29 @@ const Reservation = () => {
                                 className="w-full input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                                 selected={selectDate}
                                 onChange={(date) => setSelectDate(date)}
+                                dateFormat="Pp"
                             ></ReactDatePicker>
                             <MdOutlineDateRange className='text-xl absolute top-12 right-3'></MdOutlineDateRange>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Time*</span>
+                            </label>
+                            <input
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is required',
+                                    }
+                                })}
+                                type='text'
+                                placeholder="Time"
+                                className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                            />
+                            <label className="label pt-1">
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.name.message}</span>}
+                            </label>
                         </div>
 
                         <div className="form-control">
@@ -71,13 +92,12 @@ const Reservation = () => {
                             </label>
                         </div>
 
-
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Guest*</span>
                             </label>
                             <select
-                                {...register("category")}
+                                {...register("guest")}
                                 type='text'
                                 className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                             >
@@ -106,7 +126,6 @@ const Reservation = () => {
                             />
                         </div>
 
-
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Phone*</span>
@@ -127,18 +146,12 @@ const Reservation = () => {
                             </label>
                         </div>
 
-
-
-
                     </div>
 
-
-
-
-
-                    <div>
+                    <div className='mt-6'>
                         <Button>Book A Table</Button>
                     </div>
+
                 </form>
             </div>
         </section>
