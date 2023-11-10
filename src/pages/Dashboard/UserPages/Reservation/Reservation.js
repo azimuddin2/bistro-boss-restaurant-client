@@ -63,7 +63,7 @@ const Reservation = () => {
         const { time, guest, name, phone } = data;
 
         const bookingInfo = {
-            selectDate,
+            date: selectDate,
             time,
             guest,
             name,
