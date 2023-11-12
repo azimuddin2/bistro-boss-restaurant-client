@@ -2,7 +2,11 @@ import React from 'react';
 import { GoCheckCircleFill } from 'react-icons/go';
 
 const ManageBookingRow = ({ index, booking, refetch }) => {
-    const { name, email, phone, guest, date, time, status } = booking;
+    const { _id, name, email, phone, guest, date, time, status } = booking;
+
+    const handleStatusUpdate = () => {
+
+    };
 
     return (
         <tr className='text-secondary font-medium'>
@@ -33,7 +37,10 @@ const ManageBookingRow = ({ index, booking, refetch }) => {
                     status === "success" ?
                         <GoCheckCircleFill className='text-4xl text-green-700'></GoCheckCircleFill>
                         :
-                        <GoCheckCircleFill className='text-4xl text-green-300 cursor-pointer'></GoCheckCircleFill>
+                        <GoCheckCircleFill
+                            onClick={() => handleStatusUpdate(_id)}
+                            className='text-4xl text-green-300 cursor-pointer'
+                        ></GoCheckCircleFill>
                 }
             </td>
         </tr>
