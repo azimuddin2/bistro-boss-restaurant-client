@@ -79,7 +79,6 @@ const CheckoutForm = ({ carts, refetch, price }) => {
                 email: user?.email,
                 transactionId,
                 price,
-                category: 'Food Order',
                 date,
                 status: 'pending',
                 quantity: carts.length,
