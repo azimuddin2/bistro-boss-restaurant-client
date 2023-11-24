@@ -22,6 +22,7 @@ import ManageItems from "../pages/Dashboard/AdminPages/ManageItems/ManageItems";
 import ManageBookings from "../pages/Dashboard/AdminPages/ManageBookings/ManageBookings";
 import UpdateItem from "../pages/Dashboard/AdminPages/UpdateItem/UpdateItem";
 import Payment from "../pages/Dashboard/UserPages/Payment/Payment";
+import EditProfile from "../components/EditProfile/EditProfile";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
         path: 'dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+            {
+                path: 'edit-profile',
+                element: <EditProfile></EditProfile>
+            },
             {
                 path: 'user-home',
                 element: <UserHome></UserHome>

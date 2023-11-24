@@ -96,7 +96,7 @@ const UserHome = () => {
                         </div>
                     </div>
                     <h1 className='text-2xl font-medium font-family my-3'>{user.displayName}</h1>
-                    <Link to={'/edit-profile'}>
+                    <Link to={'/dashboard/edit-profile'}>
                         <Button>Edit Profile <BiEdit className='text-xl' /></Button>
                     </Link>
                 </div>
