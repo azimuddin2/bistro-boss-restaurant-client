@@ -7,21 +7,70 @@ import { BiImageAdd } from 'react-icons/bi';
 import useAuth from '../../hooks/useAuth';
 import userImg from '../../assets/Images/others/user.png';
 import SectionTitle from '../SectionTitle/SectionTitle';
+import swal from 'sweetalert';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const EditProfile = () => {
-    const { user } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
+    const { user, updateUserProfile } = useAuth();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const onSubmit = () => {
+    const imgHostingToken = process.env.REACT_APP_Image_Upload_token;
+    const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${imgHostingToken}`
 
-    }
+    const onSubmit = (data) => {
+        const formData = new FormData();
+        formData.append('image', data.image[0]);
+        fetch(imgHostingUrl, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url;
+                    const { name, phone } = data;
+
+                    // firebase save
+                    handleUpdateUserProfile(name, imgURL, phone);
+
+                    // user information database save
+                    const updateProfile = {
+                        imgURL,
+                        name,
+                        email: user?.email,
+                        phone
+                    };
+                    axiosSecure.post('users', updateProfile)
+                    .then(result => {
+                    })
+
+                }
+            })
+    };
+
+    const handleUpdateUserProfile = (name, imgURL, phone) => {
+        const profile = {
+            displayName: name,
+            photoURL: imgURL,
+            phoneNumber: phone,
+        };
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => {
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
+            })
+    };
 
     return (
         <section className='my-12'>
-           <SectionTitle subHeading={'User Information'} heading={'Update Profile'}></SectionTitle>
-           
+            <SectionTitle subHeading={'My Information'} heading={'Update Profile'}></SectionTitle>
             <div className='p-5 lg:p-12 w-11/12 lg:w-1/2 mx-auto bg-[#F3F3F3]'>
-
                 <div className="avatar mb-8 flex justify-center">
                     <div className="w-28 rounded-full ring ring-primary ring-offset-1">
                         {
@@ -32,11 +81,7 @@ const EditProfile = () => {
                         }
                     </div>
                 </div>
-
-
                 <form onSubmit={handleSubmit(onSubmit)}>
-
-
                     <div className="form-control w-full">
                         <label
                             htmlFor='image'
@@ -62,7 +107,6 @@ const EditProfile = () => {
                             {errors.image?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.image.message}</span>}
                         </label>
                     </div>
-
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-semibold">Name*</span>
@@ -83,7 +127,6 @@ const EditProfile = () => {
                             {errors.name?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.name.message}</span>}
                         </label>
                     </div>
-
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-semibold">Email*</span>
@@ -97,7 +140,6 @@ const EditProfile = () => {
                             className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                         />
                     </div>
-
                     <div className="form-control mb-5 mt-2">
                         <label className="label">
                             <span className="label-text font-semibold">Phone Number*</span>
@@ -117,7 +159,6 @@ const EditProfile = () => {
                             {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.phone.message}</span>}
                         </label>
                     </div>
-
                     <Button>Update Profile<FiCheckCircle className='text-xl'></FiCheckCircle></Button>
                 </form>
             </div>
