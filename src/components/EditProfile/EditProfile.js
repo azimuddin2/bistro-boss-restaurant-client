@@ -9,11 +9,15 @@ import userImg from '../../assets/Images/others/user.png';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import swal from 'sweetalert';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useNavigate } from 'react-router-dom';
+import useAdmin from '../../hooks/useAdmin';
 
 const EditProfile = () => {
+    const [isAdmin] = useAdmin();
     const [axiosSecure] = useAxiosSecure();
     const { user, updateUserProfile } = useAuth();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const navigate = useNavigate();
 
     const imgHostingToken = process.env.REACT_APP_Image_Upload_token;
     const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${imgHostingToken}`
@@ -31,20 +35,33 @@ const EditProfile = () => {
                     const imgURL = imgResponse.data.display_url;
                     const { name, phone } = data;
 
-                    // firebase save
+                    //TODO: firebase save
                     handleUpdateUserProfile(name, imgURL, phone);
 
-                    // user information database save
-                    const updateProfile = {
+                    //TODO: user information database save
+                    const updateInfo = {
                         imgURL,
                         name,
                         email: user?.email,
                         phone
                     };
-                    axiosSecure.post('users', updateProfile)
-                    .then(result => {
-                    })
-
+                    axiosSecure.put('/users', updateInfo)
+                        .then(result => {
+                            if (result.data.modifiedCount) {
+                                reset();
+                                swal({
+                                    title: "Profile updated successfully",
+                                    icon: "success",
+                                    timer: 6000,
+                                });
+                                {
+                                    isAdmin ?
+                                        navigate('/dashboard/admin-home')
+                                        :
+                                        navigate('/dashboard/user-home')
+                                }
+                            }
+                        })
                 }
             })
     };
@@ -75,9 +92,9 @@ const EditProfile = () => {
                     <div className="w-28 rounded-full ring ring-primary ring-offset-1">
                         {
                             user.photoURL ?
-                                <img src={user.photoURL} alt='' className='w-full rounded-full' />
+                                <img src={user.photoURL} alt='user-photo' className='w-full rounded-full' />
                                 :
-                                <img src={userImg} alt='' className='w-full rounded-full' />
+                                <img src={userImg} alt='user-photo' className='w-full rounded-full' />
                         }
                     </div>
                 </div>
@@ -159,7 +176,9 @@ const EditProfile = () => {
                             {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.phone.message}</span>}
                         </label>
                     </div>
-                    <Button>Update Profile<FiCheckCircle className='text-xl'></FiCheckCircle></Button>
+                    <div className='text-center'>
+                        <Button>Update Profile<FiCheckCircle className='text-xl'></FiCheckCircle></Button>
+                    </div>
                 </form>
             </div>
         </section>

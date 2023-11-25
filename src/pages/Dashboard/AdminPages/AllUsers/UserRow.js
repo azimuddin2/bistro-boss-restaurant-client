@@ -4,7 +4,7 @@ import { RiAdminFill, RiDeleteBin5Fill } from 'react-icons/ri';
 import swal from 'sweetalert';
 
 const UserRow = ({ index, user, refetch }) => {
-    const { name, email, role } = user;
+    const { name, email, role, image } = user;
 
     const handleMakeAdmin = (user) => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
@@ -56,7 +56,12 @@ const UserRow = ({ index, user, refetch }) => {
             <td>{index + 1}</td>
             <td>
                 <div className="w-12 flex items-center rounded-full border">
-                    <img src={userImg} alt="User" className='w-full rounded-full' />
+                    {
+                        image ?
+                            <img src={image} alt='user-photo' className='w-full rounded-full' />
+                            :
+                            <img src={userImg} alt='user-photo' className='w-full rounded-full' />
+                    }
                 </div>
             </td>
             <td>
