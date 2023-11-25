@@ -58,9 +58,9 @@ const UserRow = ({ index, user, refetch }) => {
                 <div className="w-12 flex items-center rounded-full border">
                     {
                         image ?
-                            <img src={image} alt='user-photo' className='w-full rounded-full' />
+                            <img src={image} alt='userImg' className='w-full rounded-full' />
                             :
-                            <img src={userImg} alt='user-photo' className='w-full rounded-full' />
+                            <img src={userImg} alt='userImg' className='w-full rounded-full' />
                     }
                 </div>
             </td>

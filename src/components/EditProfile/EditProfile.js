@@ -92,9 +92,9 @@ const EditProfile = () => {
                     <div className="w-28 rounded-full ring ring-primary ring-offset-1">
                         {
                             user.photoURL ?
-                                <img src={user.photoURL} alt='user-photo' className='w-full rounded-full' />
+                                <img src={user.photoURL} alt='userImg' className='w-full rounded-full' />
                                 :
-                                <img src={userImg} alt='user-photo' className='w-full rounded-full' />
+                                <img src={userImg} alt='userImg' className='w-full rounded-full' />
                         }
                     </div>
                 </div>

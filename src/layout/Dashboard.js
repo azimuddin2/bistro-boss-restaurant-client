@@ -3,11 +3,11 @@ import { BiSolidAddToQueue } from 'react-icons/bi';
 import { FaCalendarAlt, FaClipboardList, FaHome, FaShoppingBasket, FaShoppingCart, FaUsers, FaWallet } from 'react-icons/fa';
 import { MdLibraryBooks, MdManageHistory, MdMarkEmailRead, MdRateReview } from 'react-icons/md';
 import { RiFileList3Fill } from 'react-icons/ri';
-import { Link, Outlet } from 'react-router-dom';
-import logo from '../assets/Images/others/dark-logo.png';
+import { Outlet } from 'react-router-dom';
 import ActiveLink from '../components/ActiveLink/ActiveLink';
 import useCart from '../hooks/useCart';
 import useAdmin from '../hooks/useAdmin';
+import DashboardNavbar from '../pages/Shared/DashboardNavbar/DashboardNavbar';
 
 const Dashboard = () => {
     const [carts] = useCart();
@@ -15,18 +15,15 @@ const Dashboard = () => {
 
     return (
         <div>
-            {/* <Navbar></Navbar> */}
-            <div className="drawer lg:drawer-open">
+            <DashboardNavbar></DashboardNavbar>
+            <div className="drawer lg:drawer-open mx-auto max-w-screen-xl">
                 <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side">
-                    <Link to='/'>
-                        <img src={logo} alt="Logo" className='mx-auto pt-10 pb-5' />
-                    </Link>
+                <div className="drawer-side ">
                     <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-64 lg:bg-inherit bg-base-100 text-base-content">
+                    <ul className="menu p-4 h-full w-64 lg:bg-inherit bg-base-100 text-base-content">
                         {
                             isAdmin ?
                                 <>
