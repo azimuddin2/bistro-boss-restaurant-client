@@ -55,11 +55,11 @@ const Navbar = () => {
         <div className='fixed z-10 w-full'>
             <div
                 style={{ background: "rgba(21, 21, 21, 0.50)" }}
-                className="navbar mx-auto max-w-screen-xl text-white lg:px-10"
+                className="navbar mx-auto max-w-screen-xl text-white lg:px-10 px-6"
             >
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <label htmlFor='' tabIndex="0" className="btn btn-ghost lg:hidden">
+                        <label htmlFor='' tabIndex="0" className="btn btn-ghost lg:hidden" style={{paddingLeft: '0px'}}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul style={{ background: "rgba(21, 21, 21, 0.80)" }} tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-56">
@@ -86,10 +86,6 @@ const Navbar = () => {
                                 </div>
                             </Link>
                         }
-
-                        <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                        </label>
                     </div>
                 }
             </div>

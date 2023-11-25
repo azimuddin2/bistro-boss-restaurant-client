@@ -5,6 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import userImg from '../../../assets/Images/others/user.png';
 import { CgLogOut } from "react-icons/cg";
 import { BiSolidEdit } from 'react-icons/bi';
+import { MdOutlineNotificationsActive } from 'react-icons/md';
 
 const DashboardNavbar = () => {
     const { user } = useAuth();
@@ -24,6 +25,12 @@ const DashboardNavbar = () => {
             </div>
 
             <div className="navbar-end">
+
+                <div className="indicator cursor-pointer" style={{marginRight: '20px'}}>
+                    <MdOutlineNotificationsActive className='text-2xl' />
+                    <span className="badge badge-sm indicator-item bg-primary border-none text-white">{0}</span>
+                </div>
+
 
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
