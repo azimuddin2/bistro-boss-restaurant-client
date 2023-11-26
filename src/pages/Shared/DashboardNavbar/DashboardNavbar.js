@@ -1,18 +1,33 @@
 import React from 'react';
 import logo from '../../../assets/Images/others/dark-logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import userImg from '../../../assets/Images/others/user.png';
 import { CgLogOut } from "react-icons/cg";
 import { BiSolidEdit } from 'react-icons/bi';
 import { MdOutlineNotificationsActive } from 'react-icons/md';
+import swal from 'sweetalert';
 
 const DashboardNavbar = () => {
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout()
+            .then(() => { })
+            .catch(error => {
+                swal({
+                    title: "Oops...",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try again",
+                });
+            })
+        navigate('/login');
+    };
 
     return (
         <div className="navbar bg-base-100 mx-auto max-w-screen-xl lg:px-6">
-
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
@@ -23,15 +38,11 @@ const DashboardNavbar = () => {
                     <img src={logo} alt="logo" className='w-full' style={{ height: '48px' }} />
                 </Link>
             </div>
-
             <div className="navbar-end">
-
-                <div className="indicator cursor-pointer" style={{marginRight: '20px'}}>
+                <div className="indicator cursor-pointer" style={{ marginRight: '20px' }}>
                     <MdOutlineNotificationsActive className='text-2xl' />
                     <span className="badge badge-sm indicator-item bg-primary border-none text-white">{0}</span>
                 </div>
-
-
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-12 rounded-full border border-primary">
@@ -43,39 +54,31 @@ const DashboardNavbar = () => {
                             }
                         </div>
                     </label>
-
-                    <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-[1] p-5 shadow bg-base-100 rounded-box w-64">
-
+                    <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-[1] py-8 px-6 shadow bg-base-100 rounded-box w-80">
                         <div className='text-center mb-4'>
-                            <h1 className='text-md mb-3'>{user.email}</h1>
                             <div className="avatar">
                                 <div className="w-20 rounded-full ring ring-primary ring-offset-1">
-                                    <img src={user.photoURL} alt='' className='w-full rounded-full' />
+                                    <img src={user.photoURL} alt='userImage' className='w-full rounded-full' />
                                 </div>
                             </div>
-                            <h1 className='text-lg font-family font-medium'>Hi, {user.displayName}!</h1>
+                            <h1 className='text-lg font-family font-medium mt-2'>Hi, {user.displayName}!</h1>
+                            <h1 className='text-md mb-3'>{user.email}</h1>
                         </div>
-
                         <li>
-                            <a className="justify-between text-lg">
+                            <Link to={'/dashboard/edit-profile'} className="justify-between text-lg">
                                 Edit Profile
                                 <span className="badge"><BiSolidEdit className='text-lg' /></span>
-                            </a>
+                            </Link>
                         </li>
-
-
-
                         <li>
-                            <a className='text-lg'>
+                            <button onClick={handleLogout} className='text-lg'>
                                 Logout
                                 <span className="badge"><CgLogOut className='text-lg' /></span>
-                            </a>
+                            </button>
                         </li>
                     </ul>
-
                 </div>
             </div>
-
         </div>
     );
 };
