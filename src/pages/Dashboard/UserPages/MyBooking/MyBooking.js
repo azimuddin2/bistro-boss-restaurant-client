@@ -36,11 +36,11 @@ const MyBooking = () => {
         <>
             {
                 bookings.length > 0 ?
-                    <div className='bg-[#F6F6F6] pb-20 p-10 h-full'>
+                    <div className='bg-[#F6F6F6] py-10 lg:p-10 h-full'>
                         <SectionTitle subHeading={'Excellent Ambience'} heading={'My Bookings'}></SectionTitle>
                         <div className='w-11/12 lg:w-4/5 mx-auto bg-white p-5 lg:p-10'>
-                            <div className='flex justify-between items-center mb-6'>
-                                <h2 className='lg:text-xl uppercase font-bold font-family text-secondary'>Total Bookings: {bookings?.length}</h2>
+                            <div className='flex justify-between items-center mb-3 lg:mb-6'>
+                                <h2 className='text-lg lg:text-xl uppercase font-bold font-family text-secondary'>Total Bookings: {bookings?.length}</h2>
                             </div>
                             <div className="overflow-x-auto">
                                 <table className="table">

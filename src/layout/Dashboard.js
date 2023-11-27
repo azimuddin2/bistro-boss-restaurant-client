@@ -17,7 +17,7 @@ const Dashboard = () => {
     return (
         <div>
             <DashboardNavbar></DashboardNavbar>
-            <div className="drawer lg:drawer-open mx-auto max-w-screen-xl">
+            <div className="drawer block lg:grid lg:drawer-open mx-auto max-w-screen-xl">
                 <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>

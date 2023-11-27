@@ -87,7 +87,7 @@ const Reservation = () => {
     return (
         <section className='my-10'>
             <SectionTitle subHeading={'Reservation'} heading={'BOOK A TABLE'}></SectionTitle>
-            <div className='p-5 lg:p-10 w-11/12 lg:w-4/5 mx-auto bg-[#F3F3F3]'>
+            <div className='px-5 py-8 lg:p-10 w-11/12 lg:w-4/5 mx-auto bg-[#F3F3F3]'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
                         <div className="form-control relative">

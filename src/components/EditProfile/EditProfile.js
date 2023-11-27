@@ -85,9 +85,9 @@ const EditProfile = () => {
     };
 
     return (
-        <section className='my-12'>
+        <section className='my-10'>
             <SectionTitle subHeading={'My Information'} heading={'Update Profile'}></SectionTitle>
-            <div className='p-5 lg:p-12 w-11/12 lg:w-1/2 mx-auto bg-[#F3F3F3]'>
+            <div className='px-5 py-8 lg:p-12 w-11/12 lg:w-1/2 mx-auto bg-[#F3F3F3]'>
                 <div className="avatar mb-8 flex justify-center">
                     <div className="w-28 rounded-full ring ring-primary ring-offset-1">
                         {

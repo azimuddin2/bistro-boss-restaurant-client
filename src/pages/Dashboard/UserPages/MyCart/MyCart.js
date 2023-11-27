@@ -24,13 +24,13 @@ const MyCart = () => {
         <>
             {
                 carts.length > 0 ?
-                    <div className='bg-[#F6F6F6] pb-20 p-10 h-full'>
+                    <div className='bg-[#F6F6F6] py-10 lg:p-10 h-full'>
                         <SectionTitle subHeading={'My Cart'} heading={'WANNA ADD MORE?'}></SectionTitle>
                         <div className='w-11/12 lg:w-3/4 mx-auto bg-white p-5 lg:p-10'>
-                            <div className='flex justify-between items-center mb-6'>
-                                <h2 className='lg:text-xl uppercase font-bold font-family text-secondary'>Total Orders: {carts?.length}</h2>
-                                <h2 className='lg:text-xl uppercase font-bold font-family text-secondary'>Total Price: ${totalPrice.toFixed(2)}</h2>
-                                <Link to={'/dashboard/payment'}>
+                            <div className='lg:flex justify-between items-center mb-4 lg:mb-6'>
+                                <h2 className='text-lg lg:text-xl uppercase font-bold font-family text-secondary'>Total Orders: {carts?.length}</h2>
+                                <h2 className='text-lg lg:text-xl uppercase font-bold font-family text-secondary'>Total Price: ${totalPrice.toFixed(2)}</h2>
+                                <Link to={'/dashboard/payment'} className='flex justify-end'>
                                     <button disabled={carts.length < 1} className='btn btn-primary bg-[#D1A054] text-white border-none btn-sm font-family rounded-sm'>Pay</button>
                                 </Link>
                             </div>

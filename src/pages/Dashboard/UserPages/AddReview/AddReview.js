@@ -45,7 +45,7 @@ const AddReview = () => {
     return (
         <section className='my-10'>
             <SectionTitle subHeading={'Sharing is Caring!'} heading={'Give a Review'}></SectionTitle>
-            <div className='p-5 lg:p-12 w-11/12 lg:w-3/5 mx-auto bg-[#F3F3F3]'>
+            <div className='px-5 py-8 lg:p-12 w-11/12 lg:w-3/5 mx-auto bg-[#F3F3F3]'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='text-center mb-6'>
                         <h2 className='text-xl uppercase font-medium mb-2 font-family'>Rate Us!</h2>
