@@ -103,7 +103,10 @@ const router = createBrowserRouter([
             },
             {
                 path: 'manage-items',
-                element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+                element: <AdminRoute><ManageItems></ManageItems></AdminRoute>,
+                loader: async () => {
+                    return fetch('http://localhost:5000/totalMenus')
+                }
             },
             {
                 path: 'update-item/:id',
