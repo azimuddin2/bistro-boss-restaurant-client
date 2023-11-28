@@ -10,16 +10,16 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 const ManageItems = () => {
     const [axiosSecure] = useAxiosSecure();
     const { totalMenus } = useLoaderData();
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(6);
 
     const totalPages = Math.ceil(totalMenus / itemsPerPage);
-    const pageNumbers = [...Array(totalPages).keys()].map(value => value + 1);
+    const pageNumbers = [...Array(totalPages).keys()];
 
     const options = [4, 5, 6, 7, 8, 9, 10];
     const handleSelectChange = (event) => {
         setItemsPerPage(parseInt(event.target.value));
-        setCurrentPage(1);
+        setCurrentPage(0);
     };
 
     const { data: menus, isLoading, error, refetch } = useQuery({
@@ -43,7 +43,7 @@ const ManageItems = () => {
             <SectionTitle subHeading={'Hurry Up'} heading={'Manage All Items'}></SectionTitle>
             <div className='w-11/12 lg:w-4/5 mx-auto bg-white p-5 lg:p-10'>
                 <div className='flex justify-between items-center mb-4 lg:mb-6'>
-                    {/* <h2 className='text-lg lg:text-xl uppercase font-bold font-family text-secondary'>Total Items: {menu.length}</h2> */}
+                    <h2 className='text-lg lg:text-xl uppercase font-bold font-family text-secondary'>Total Items: {menus.length}</h2>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table uppercase font-family">
@@ -73,7 +73,6 @@ const ManageItems = () => {
             </div>
             {/* pagination */}
             <div className=' text-center mt-10 mb-2 w-11/12 mx-auto'>
-                <h1>Current Page: {currentPage}</h1>
                 {
                     pageNumbers?.map(number => <button
                         onClick={() => setCurrentPage(number)}
