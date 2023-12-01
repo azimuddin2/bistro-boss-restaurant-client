@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 import Error from '../../../Shared/Error/Error';
 import Loading from '../../../Shared/Loading/Loading';
@@ -10,8 +10,6 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 const ManageItems = () => {
     const [axiosSecure] = useAxiosSecure();
     const { totalMenus } = useLoaderData();
-    const searchRef = useRef();
-    const [search, setSearch] = useState('');
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(6);
 
@@ -24,16 +22,10 @@ const ManageItems = () => {
         setCurrentPage(0);
     };
 
-    const handleSearch = () => {
-        setSearch(searchRef.current.value);
-        setCurrentPage(0);
-    };
-    console.log(search)
-
     const { data: menus, isLoading, error, refetch } = useQuery({
-        queryKey: ['all-menus', currentPage, itemsPerPage, search],
+        queryKey: ['all-menus', currentPage, itemsPerPage],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/all-menus?page=${currentPage}&limit=${itemsPerPage}&search=${search}`);
+            const res = await axiosSecure.get(`/all-menus?page=${currentPage}&limit=${itemsPerPage}`);
             return res.data;
         }
     })
@@ -51,25 +43,7 @@ const ManageItems = () => {
             <SectionTitle subHeading={'Hurry Up'} heading={'Manage All Items'}></SectionTitle>
             <div className='w-11/12 lg:w-4/5 mx-auto bg-white p-5 lg:p-10'>
                 <div className='flex justify-between items-center mb-4 lg:mb-6'>
-                    <h2 className='text-lg lg:text-xl uppercase font-bold font-family text-secondary'>Total Items: {menus?.length}</h2>
-
-
-                    <div className="join">
-                        <input
-                            type='text'
-                            ref={searchRef}
-                            className="input input-bordered join-item focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-                            placeholder="Search menu..."
-                        />
-                        <button
-                            className="btn join-item rounded bg-primary hover:bg-primary text-white"
-                            onClick={handleSearch}
-                        >
-                            Search
-                        </button>
-                    </div>
-
-
+                    <h2 className='text-lg lg:text-xl uppercase font-bold font-family text-secondary'>Total Items: {totalMenus}</h2>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table uppercase font-family">
@@ -106,7 +80,6 @@ const ManageItems = () => {
                         key={number}
                     >{number}</button>)
                 }
-
                 <select
                     value={itemsPerPage}
                     onChange={handleSelectChange}

@@ -117,7 +117,10 @@ const router = createBrowserRouter([
             },
             {
                 path: 'manage-bookings',
-                element: <AdminRoute><ManageBookings></ManageBookings></AdminRoute>
+                element: <AdminRoute><ManageBookings></ManageBookings></AdminRoute>,
+                loader: async () => {
+                    return fetch('http://localhost:5000/totalBookings')
+                }
             },
             {
                 path: 'all-users',
