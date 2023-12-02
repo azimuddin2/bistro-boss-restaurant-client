@@ -13,16 +13,11 @@ const ManageBookings = () => {
     const [axiosSecure] = useAxiosSecure();
     const { totalBookings } = useLoaderData();
     const [currentPage, setCurrentPage] = useState(0);
-    const [bookingsPerPage, setBookingsPerPage] = useState(5);
+    const [bookingsPerPage, setBookingsPerPage] = useState(6);
     const searchRef = useRef();
     const [search, setSearch] = useState('');
 
     const totalPages = Math.ceil(totalBookings / bookingsPerPage);
-
-    const handleSearch = () => {
-        setSearch(searchRef.current.value);
-        setCurrentPage(currentPage);
-    };
 
     const handlePrevClick = () => {
         if (currentPage > 0) {
@@ -34,6 +29,11 @@ const ManageBookings = () => {
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
         }
+    };
+
+    const handleSearch = () => {
+        setSearch(searchRef.current.value);
+        setCurrentPage(currentPage);
     };
 
     const { data: bookings, isLoading, error, refetch } = useQuery({
@@ -58,15 +58,12 @@ const ManageBookings = () => {
             <div className='w-11/12 lg:w-5/6 mx-auto bg-white p-5 lg:p-10'>
                 <div className='lg:flex justify-between items-center mb-3 lg:mb-5'>
                     <h2 className='text-lg lg:text-xl uppercase font-bold font-family text-secondary'>All Bookings: {totalBookings}</h2>
-                    
-                  
-                    
-                    <div className="join w-full lg:w-72 my-2 lg:my-0">
+                    <div className="join w-full lg:w-3/5 mt-1 lg:mt-0">
                         <input
                             type='text'
                             ref={searchRef}
                             className="input input-sm w-full rounded input-bordered join-item focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-                            placeholder="Search booking..."
+                            placeholder="Search for information..."
                         />
                         <button
                             className="btn btn-sm join-item rounded bg-primary hover:bg-primary text-white"
@@ -75,11 +72,11 @@ const ManageBookings = () => {
                             <IoSearch className='text-xl' />
                         </button>
                     </div>
-
+                </div>
+                <div className='mb-1'>
                     {
                         search && <h2 className='text-lg font-family text-right'>Matching Results: {bookings.length}</h2>
                     }
-
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -116,8 +113,6 @@ const ManageBookings = () => {
                 >
                     <MdKeyboardArrowLeft className='text-xl' /> Previous
                 </button>
-
-                {/* <span>{`Page ${currentPage} of ${totalPages} of bookings: ${bookingsPerPage}`}</span> */}
 
                 <button
                     onClick={handleNextClick}
