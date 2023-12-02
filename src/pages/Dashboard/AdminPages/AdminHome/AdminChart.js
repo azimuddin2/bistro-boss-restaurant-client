@@ -2,6 +2,7 @@ import React from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie } from 'recharts';
 
 const AdminChart = () => {
+    const categories = ['coffee', 'dessert', 'pizza', 'burger', 'soup', 'salad'];
     const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
     const data = [
