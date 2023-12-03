@@ -100,7 +100,7 @@ const AdminHome = () => {
                     </div>
                 </div>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
+            {/* <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
                 <div className='grid grid-cols-1 lg:grid-cols-2  gap-3'>
                     <div
                         style={{ background: 'linear-gradient(90deg, rgb(0, 236, 159) 0%, rgb(0, 200, 159) 100%)' }}
@@ -161,7 +161,7 @@ const AdminHome = () => {
                         <Button>Edit Profile <BiEdit className='text-xl' /></Button>
                     </Link>
                 </div>
-            </div>
+            </div> */}
             <div className='mt-4'>
                 <AdminChart></AdminChart>
             </div>

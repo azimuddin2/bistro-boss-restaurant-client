@@ -1,8 +1,41 @@
 import React from 'react';
+import { FaSquareCheck } from 'react-icons/fa6';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie } from 'recharts';
 
 const AdminChart = () => {
-    const categories = ['coffee', 'dessert', 'pizza', 'burger', 'soup', 'salad'];
+    const categories = [
+        {
+            id: 1,
+            category: 'coffee',
+            color: 'text-[#0088FE]'
+        },
+        {
+            id: 2,
+            category: 'dessert',
+            color: 'text-[#00C49F]'
+        },
+        {
+            id: 3,
+            category: 'pizza',
+            color: 'text-[#FFBB28]'
+        },
+        {
+            id: 4,
+            category: 'burger',
+            color: 'text-[#FF8042]'
+        },
+        {
+            id: 5,
+            category: 'soup',
+            color: 'text-[red]'
+        },
+        {
+            id: 6,
+            category: 'salad',
+            color: 'text-[pink]'
+        },
+    ];
+
     const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
     const data = [
@@ -84,7 +117,7 @@ const AdminChart = () => {
                     height={300}
                     data={data}
                     margin={{
-                        top: 30,
+                        top: 50,
                         right: 45,
                         left: 0,
                         bottom: 0,
@@ -102,25 +135,32 @@ const AdminChart = () => {
                 </BarChart>
             </div>
             <div className='bg-white'>
-                <ResponsiveContainer width="100%" height="100%">
-                    <PieChart width={400} height={400}>
-                        <Pie
-                            data={data}
-                            cx="50%"
-                            cy="50%"
-                            labelLine={false}
-                            label={renderCustomizedLabel}
-                            outerRadius={80}
-                            fill="#8884d8"
-                            dataKey="value"
-                        >
-                            {data.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-                            ))}
-                        </Pie>
-                        <Tooltip />
-                    </PieChart>
-                </ResponsiveContainer>
+                <div className='grid grid-cols-3 gap-2 mt-8 mx-auto'>
+                    {
+                        categories.map((category) => <p
+                            className={`${category.color} capitalize font-medium font-family flex items-center justify-center`}
+                            key={category.id}
+                            category={category}
+                        ><FaSquareCheck className='text-lg mr-1'/> {category.category}</p>)
+                    }
+                </div>
+                <PieChart width={450} height={300}>
+                    <Pie
+                        data={data}
+                        cx="50%"
+                        cy="50%"
+                        // labelLine={false}
+                        label={renderCustomizedLabel}
+                        outerRadius={100}
+                        fill="#8884d8"
+                        dataKey="value"
+                    >
+                        {data.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                        ))}
+                    </Pie>
+                    <Tooltip />
+                </PieChart>
             </div>
         </section>
     );
