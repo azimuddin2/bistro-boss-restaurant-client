@@ -23,11 +23,13 @@ import ManageBookings from "../pages/Dashboard/AdminPages/ManageBookings/ManageB
 import UpdateItem from "../pages/Dashboard/AdminPages/UpdateItem/UpdateItem";
 import Payment from "../pages/Dashboard/UserPages/Payment/Payment";
 import EditProfile from "../components/EditProfile/EditProfile";
+import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',

@@ -5,9 +5,9 @@ import Loading from '../../../Shared/Loading/Loading';
 import Error from '../../../Shared/Error/Error';
 import CartRow from './CartRow';
 import { FaShoppingCart } from 'react-icons/fa';
-import orderFoodImg from '../../../../assets/Images/others/order-food.gif';
 import { Link } from 'react-router-dom';
 import useTitle from '../../../../hooks/useTitle';
+import foodGif from '../../../../assets/Images/others/cupcake.gif';
 
 const MyCart = () => {
     useTitle('My Cart');
@@ -62,10 +62,13 @@ const MyCart = () => {
                         </div>
                     </div>
                     :
-                    <div className='w-11/12 lg:w-3/5 mx-auto my-12 lg:my-0'>
-                        <img src={orderFoodImg} alt="Order Food" className='mx-auto' />
+                    <div className='w-11/12 lg:w-4/5 mx-auto'>
+                        <img src={foodGif} alt="" className='mx-auto' />
                         <Link to={'/order/coffee'} className='flex justify-center'>
-                            <button className='btn btn-primary text-white'>Please Order Food <FaShoppingCart className='text-xl'></FaShoppingCart></button>
+                            <button className='btn btn-sm btn-primary text-white'>
+                                Please Order Food
+                                <FaShoppingCart className='text-lg'></FaShoppingCart>
+                            </button>
                         </Link>
                     </div>
             }
