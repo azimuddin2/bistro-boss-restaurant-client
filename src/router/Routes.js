@@ -107,21 +107,21 @@ const router = createBrowserRouter([
                 path: 'manage-items',
                 element: <AdminRoute><ManageItems></ManageItems></AdminRoute>,
                 loader: async () => {
-                    return fetch('http://localhost:5000/totalMenus')
+                    return fetch('https://bistro-boss-restaurant-server-pied.vercel.app/totalMenus')
                 }
             },
             {
                 path: 'update-item/:id',
                 element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/menu/${params.id}`)
+                    return fetch(`https://bistro-boss-restaurant-server-pied.vercel.app/menu/${params.id}`)
                 }
             },
             {
                 path: 'manage-bookings',
                 element: <AdminRoute><ManageBookings></ManageBookings></AdminRoute>,
                 loader: async () => {
-                    return fetch('http://localhost:5000/totalBookings')
+                    return fetch('https://bistro-boss-restaurant-server-pied.vercel.app/totalBookings')
                 }
             },
             {

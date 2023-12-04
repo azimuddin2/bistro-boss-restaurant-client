@@ -15,7 +15,7 @@ const CartRow = ({ row, index, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/carts/${id}`, {
+                    fetch(`https://bistro-boss-restaurant-server-pied.vercel.app/carts/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

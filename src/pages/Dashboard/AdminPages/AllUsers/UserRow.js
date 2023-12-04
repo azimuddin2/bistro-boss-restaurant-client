@@ -7,7 +7,7 @@ const UserRow = ({ index, user, refetch }) => {
     const { name, email, role, image } = user;
 
     const handleMakeAdmin = (user) => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://bistro-boss-restaurant-server-pied.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -34,7 +34,7 @@ const UserRow = ({ index, user, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/users/${user._id}`, {
+                    fetch(`https://bistro-boss-restaurant-server-pied.vercel.app/users/${user._id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

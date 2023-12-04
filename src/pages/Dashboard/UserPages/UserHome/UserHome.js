@@ -2,7 +2,6 @@ import React from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import CountUp from 'react-countup';
 import { FaCalendarAlt, FaLuggageCart, FaShopify, FaStar } from "react-icons/fa";
-import { FaMoneyCheckDollar } from "react-icons/fa6";
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Error from '../../../Shared/Error/Error';

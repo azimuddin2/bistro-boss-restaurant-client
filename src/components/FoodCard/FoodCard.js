@@ -25,7 +25,7 @@ const FoodCard = ({ item }) => {
         };
 
         if (user && user?.email) {
-            fetch('http://localhost:5000/carts', {
+            fetch('https://bistro-boss-restaurant-server-pied.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
