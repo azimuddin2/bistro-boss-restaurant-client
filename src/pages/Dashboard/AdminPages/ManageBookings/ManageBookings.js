@@ -8,8 +8,10 @@ import ManageBookingRow from './ManageBookingRow';
 import { useLoaderData } from 'react-router-dom';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
+import useTitle from '../../../../hooks/useTitle';
 
 const ManageBookings = () => {
+    useTitle('Manage Bookings');
     const [axiosSecure] = useAxiosSecure();
     const { totalBookings } = useLoaderData();
     const [currentPage, setCurrentPage] = useState(0);

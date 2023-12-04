@@ -1,6 +1,17 @@
 import React from 'react';
 import { FaSquareCheck } from 'react-icons/fa6';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie } from 'recharts';
+import {
+    BarChart,
+    Bar,
+    Cell,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+    PieChart,
+    Pie
+} from 'recharts';
 
 const AdminChart = () => {
     const categories = [
@@ -112,55 +123,57 @@ const AdminChart = () => {
     return (
         <section className='grid grid-cols-1 lg:grid-cols-2 gap-3 rounded'>
             <div className='bg-white'>
-                <BarChart
-                    width={500}
-                    height={300}
-                    data={data}
-                    margin={{
-                        top: 50,
-                        right: 45,
-                        left: 0,
-                        bottom: 0,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                        {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-                        ))}
-                    </Bar>
-                </BarChart>
+                <ResponsiveContainer width={'100%'} height={400}>
+                    <BarChart
+                        data={data}
+                        margin={{
+                            top: 50,
+                            right: 20,
+                            left: 0,
+                            bottom: 20,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                            ))}
+                        </Bar>
+                    </BarChart>
+                </ResponsiveContainer>
             </div>
             <div className='bg-white'>
-                <div className='grid grid-cols-3 gap-2 mt-8 mx-auto'>
+                <div className='grid grid-cols-3 gap-2 mt-8 mx-auto px-5'>
                     {
                         categories.map((category) => <p
                             className={`${category.color} capitalize font-medium font-family flex items-center justify-center`}
                             key={category.id}
                             category={category}
-                        ><FaSquareCheck className='text-lg mr-1'/> {category.category}</p>)
+                        ><FaSquareCheck className='text-lg mr-1' /> {category.category}</p>)
                     }
                 </div>
-                <PieChart width={450} height={300}>
-                    <Pie
-                        data={data}
-                        cx="50%"
-                        cy="50%"
-                        // labelLine={false}
-                        label={renderCustomizedLabel}
-                        outerRadius={100}
-                        fill="#8884d8"
-                        dataKey="value"
-                    >
-                        {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-                        ))}
-                    </Pie>
-                    <Tooltip />
-                </PieChart>
+                <ResponsiveContainer width={'100%'} height={300}>
+                    <PieChart>
+                        <Pie
+                            data={data}
+                            cx="50%"
+                            cy="50%"
+                            // labelLine={false}
+                            label={renderCustomizedLabel}
+                            outerRadius={100}
+                            fill="#8884d8"
+                            dataKey="value"
+                        >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                            ))}
+                        </Pie>
+                        <Tooltip />
+                    </PieChart>
+                </ResponsiveContainer>
             </div>
         </section>
     );

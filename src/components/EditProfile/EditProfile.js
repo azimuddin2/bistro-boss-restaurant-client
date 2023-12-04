@@ -11,8 +11,10 @@ import swal from 'sweetalert';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useNavigate } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
+import useTitle from '../../hooks/useTitle';
 
 const EditProfile = () => {
+    useTitle('Update Profile');
     const [isAdmin] = useAdmin();
     const [axiosSecure] = useAxiosSecure();
     const { user, updateUserProfile } = useAuth();

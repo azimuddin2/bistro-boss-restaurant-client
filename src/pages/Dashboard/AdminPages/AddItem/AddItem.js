@@ -8,8 +8,10 @@ import { BiImageAdd } from 'react-icons/bi';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../../../hooks/useTitle';
 
 const AddItem = () => {
+    useTitle('Add Item');
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const categories = ['offered', 'coffee', 'dessert', 'pizza', 'burger', 'soup', 'salad'];

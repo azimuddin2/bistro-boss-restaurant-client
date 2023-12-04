@@ -6,8 +6,10 @@ import Loading from '../../../Shared/Loading/Loading';
 import UserRow from './UserRow';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { IoSearch } from 'react-icons/io5';
+import useTitle from '../../../../hooks/useTitle';
 
 const AllUsers = () => {
+    useTitle('All Users');
     const [axiosSecure] = useAxiosSecure();
     const [search, setSearch] = useState('');
     const searchRef = useRef();

@@ -6,8 +6,10 @@ import MenuRow from './MenuRow';
 import { useLoaderData } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import useTitle from '../../../../hooks/useTitle';
 
 const ManageItems = () => {
+    useTitle('Manage Items');
     const [axiosSecure] = useAxiosSecure();
     const { totalMenus } = useLoaderData();
     const [currentPage, setCurrentPage] = useState(0);

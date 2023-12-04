@@ -7,8 +7,10 @@ import CartRow from './CartRow';
 import { FaShoppingCart } from 'react-icons/fa';
 import orderFoodImg from '../../../../assets/Images/others/order-food.gif';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../../hooks/useTitle';
 
 const MyCart = () => {
+    useTitle('My Cart');
     const [carts, refetch, isLoading, error] = useCart();
     const totalPrice = carts?.reduce((sum, item) => item.price + sum, 0);
 

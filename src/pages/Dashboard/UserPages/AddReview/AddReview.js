@@ -8,8 +8,10 @@ import useAuth from '../../../../hooks/useAuth';
 import StarRatings from 'react-star-ratings';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import swal from 'sweetalert';
+import useTitle from '../../../../hooks/useTitle';
 
 const AddReview = () => {
+    useTitle('Add Review');
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();

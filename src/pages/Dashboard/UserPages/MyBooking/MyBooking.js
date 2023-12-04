@@ -10,8 +10,10 @@ import bookingImg from '../../../../assets/Images/others/authentication1.png';
 import Button from '../../../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { TbCalendarShare } from 'react-icons/tb';
+import useTitle from '../../../../hooks/useTitle';
 
 const MyBooking = () => {
+    useTitle('My Booking');
     const { user, loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 

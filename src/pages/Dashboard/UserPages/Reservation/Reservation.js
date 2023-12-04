@@ -12,8 +12,10 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import OurLocation from '../../../ContactUs/OurLocation/OurLocation';
+import useTitle from '../../../../hooks/useTitle';
 
 const Reservation = () => {
+    useTitle('Reservation');
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();

@@ -6,8 +6,10 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Error from '../../../Shared/Error/Error';
 import Loading from '../../../Shared/Loading/Loading';
 import PaymentRow from './PaymentRow';
+import useTitle from '../../../../hooks/useTitle';
 
 const PaymentHistory = () => {
+    useTitle('Payment History');
     const { user, loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 

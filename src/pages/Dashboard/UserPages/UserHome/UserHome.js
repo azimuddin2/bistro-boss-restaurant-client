@@ -12,8 +12,10 @@ import { BiEdit } from "react-icons/bi";
 import userImg from '../../../../assets/Images/others/user.png';
 import { Link } from 'react-router-dom';
 import Button from '../../../../components/Button/Button';
+import useTitle from '../../../../hooks/useTitle';
 
 const UserHome = () => {
+    useTitle('User Home');
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 
@@ -44,11 +46,11 @@ const UserHome = () => {
                     className='card lg:card-side rounded-lg text-white'
                 >
                     <figure className='w-full lg:w-12 lg:ml-8 mt-6 lg:mt-0'>
-                        <FaMoneyCheckDollar className='text-6xl' />
+                        <GiMoneyStack className='text-6xl' />
                     </figure>
                     <div className="card-body pt-2 lg:pt-8">
                         <h2 className="card-title justify-center lg:justify-start text-4xl font-bold">
-                            <CountUp end={revenue} duration={3} />
+                            $<CountUp end={revenue} duration={3} />
                         </h2>
                         <p className='text-center lg:text-left text-xl font-family font-medium'>Revenue</p>
                     </div>
