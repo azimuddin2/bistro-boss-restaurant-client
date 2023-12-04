@@ -62,10 +62,10 @@ const MyCart = () => {
                         </div>
                     </div>
                     :
-                    <div className='py-12'>
+                    <div className='w-11/12 lg:w-3/5 mx-auto my-12 lg:my-0'>
                         <img src={orderFoodImg} alt="Order Food" className='mx-auto' />
                         <Link to={'/order/coffee'} className='flex justify-center'>
-                            <button className='absolute bottom-20 btn btn-primary text-white'>Please Order Food <FaShoppingCart className='text-xl'></FaShoppingCart></button>
+                            <button className='btn btn-primary text-white'>Please Order Food <FaShoppingCart className='text-xl'></FaShoppingCart></button>
                         </Link>
                     </div>
             }

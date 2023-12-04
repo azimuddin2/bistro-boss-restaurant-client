@@ -69,7 +69,7 @@ const MyBooking = () => {
                         </div>
                     </div>
                     :
-                    <div className='w-full lg:w-3/5 mx-auto my-24 lg:my-10'>
+                    <div className='w-11/12 lg:w-3/5 mx-auto my-20 lg:my-10'>
                         <img src={bookingImg} alt="" className='w-full' />
                         <Link to={'/dashboard/reservation'} className='flex justify-center mt-2 w-/'>
                             <Button>Book A Table <TbCalendarShare className='text-xl'></TbCalendarShare></Button>

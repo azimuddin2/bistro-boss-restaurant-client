@@ -1,16 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { MdOutlineErrorOutline } from 'react-icons/md';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { AuthContext } from '../../../providers/AuthProvider';
 import swal from 'sweetalert';
+import useAuth from '../../../hooks/useAuth';
 
 const LoginForm = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, resetPassword } = useAuth();
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState('');
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -38,6 +39,40 @@ const LoginForm = () => {
             })
     };
 
+    const handleEmailBlur = event => {
+        setEmail(event.target.value);
+    };
+
+    const handleResetPassword = () => {
+        if (!email) {
+            swal({
+                title: "Oops...",
+                text: 'Please provide your email address to reset password',
+                icon: "error",
+                button: "Try again",
+            })
+            return;
+        }
+        else {
+            resetPassword(email)
+                .then(() => {
+                    swal({
+                        title: "Success...",
+                        text: "Please check your email",
+                        icon: "success",
+                    });
+                })
+                .catch(error => {
+                    swal({
+                        title: "Oops...",
+                        text: `${error.message}`,
+                        icon: "error",
+                        button: "Try again",
+                    });
+                })
+        }
+    };
+
     return (
         <div className='lg:pr-16 px-5 lg:px-0'>
             <h1 className='text-2xl font-bold text-center lg:mb-8'>Login</h1>
@@ -57,6 +92,7 @@ const LoginForm = () => {
                                 message: 'Provide a valid Email',
                             }
                         })}
+                        onBlur={handleEmailBlur}
                         type='email'
                         placeholder="Enter your email"
                         className="input rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
@@ -68,9 +104,14 @@ const LoginForm = () => {
                 </div>
 
                 <div className="form-control relative">
-                    <label className="label">
-                        <span className="label-text font-semibold">Password*</span>
-                    </label>
+                    <div className='flex items-center justify-between'>
+                        <label className="label">
+                            <span className="label-text font-semibold">Password*</span>
+                        </label>
+                        <label className="label" onClick={handleResetPassword}>
+                            <span className="btn-link font-medium cursor-pointer">Forgot Password?</span>
+                        </label>
+                    </div>
                     <input
                         {...register("password", {
                             required: {
@@ -85,7 +126,7 @@ const LoginForm = () => {
                     <p
                         onClick={() => setShowPassword(!showPassword)}
                         className='absolute cursor-pointer'
-                        style={{ top: '52px', right: '12px' }}
+                        style={{ top: '55px', right: '12px' }}
                     >
                         {
                             showPassword ?

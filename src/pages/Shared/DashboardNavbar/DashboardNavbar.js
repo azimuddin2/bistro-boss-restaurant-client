@@ -58,7 +58,12 @@ const DashboardNavbar = () => {
                         <div className='text-center mb-4'>
                             <div className="avatar">
                                 <div className="w-20 rounded-full ring ring-primary ring-offset-1">
-                                    <img src={user.photoURL} alt='userImage' className='w-full rounded-full' />
+                                    {
+                                        user.photoURL ?
+                                            <img src={user.photoURL} alt='userImg' className='w-full rounded-full' />
+                                            :
+                                            <img src={userImg} alt='userImg' className='w-full rounded-full' />
+                                    }
                                 </div>
                             </div>
                             <h1 className='text-lg font-family font-medium mt-2'>Hi, {user.displayName}!</h1>
