@@ -39,7 +39,7 @@ const UserHome = () => {
     return (
         <section className='h-full bg-[#F6F6F6] px-5 lg:px-10 py-10'>
             <h1 className='text-2xl lg:text-left text-center uppercase font-bold font-family text-secondary'>Hi, Welcome Back!</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6'>
                 <div
                     style={{ background: 'linear-gradient(90deg, #BB34F5 0%, #FCDBFF 100%)' }}
                     className='card lg:card-side rounded-lg text-white'

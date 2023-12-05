@@ -26,12 +26,12 @@ const SignUp = () => {
                     backgroundSize: 'cover'
                 }}
             >
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-10'>
-                    <div>
-                        <SignUpForm></SignUpForm>
-                    </div>
-                    <div className='flex justify-center items-center'>
+                <div className='hero-content p-0 flex-col lg:flex-row-reverse'>
+                    <div className='flex-1 w-full'>
                         <img src={authenticationImg} alt="" className='w-full' />
+                    </div>
+                    <div className='flex-1 w-full'>
+                        <SignUpForm></SignUpForm>
                     </div>
                 </div>
             </div>
