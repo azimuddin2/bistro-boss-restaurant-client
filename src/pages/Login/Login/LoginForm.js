@@ -6,6 +6,7 @@ import { MdOutlineErrorOutline } from 'react-icons/md';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import swal from 'sweetalert';
 import useAuth from '../../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const LoginForm = () => {
     const { signIn, resetPassword } = useAuth();
@@ -73,6 +74,24 @@ const LoginForm = () => {
         }
     };
 
+    Swal.fire({
+        icon: "info",
+        title: "Admin Access🔥",
+        html: `
+            <div>
+                <p class="block text-left ml-2 text-lg font-medium text-slate-700">Email</p>
+                <input value="adminaccess@gmail.com" id="email" readOnly class="input input-bordered w-full focus:outline-none text-lg"/>
+           </div>
+            <div class="mt-3">
+                <p class="block text-left ml-2 text-lg font-medium text-slate-700">Password</p>
+                <input value="1234567@" id="password" readOnly class="input input-bordered w-full focus:outline-none text-lg"/>
+           </div>
+        `,
+        showConfirmButton: false,
+        showCancelButton: true,
+        cancelButtonText: 'Close',
+    });
+
     return (
         <div className='lg:pr-16 px-5 lg:px-0'>
             <h1 className='text-2xl font-bold text-center lg:mb-8'>Login</h1>
@@ -96,6 +115,7 @@ const LoginForm = () => {
                         type='email'
                         placeholder="Enter your email"
                         className="input rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        required
                     />
                     <label className="label pt-1">
                         {errors.email?.type === 'required' && <span className="label-text-alt text-red-500 text-sm flex items-center"><MdOutlineErrorOutline className='text-lg' style={{ marginRight: '2px' }}></MdOutlineErrorOutline>{errors.email.message}</span>}
@@ -122,6 +142,7 @@ const LoginForm = () => {
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Enter your password"
                         className="input rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        required
                     />
                     <p
                         onClick={() => setShowPassword(!showPassword)}
