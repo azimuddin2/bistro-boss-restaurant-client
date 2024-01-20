@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 const LoginForm = () => {
     const { signIn, resetPassword } = useAuth();
     const { register, handleSubmit, formState: { errors }, } = useForm();
+    const [adminAccess, setAdminAccess] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
 
@@ -23,6 +24,7 @@ const LoginForm = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                saveUserDatabase(user.displayName, user.email);
                 swal({
                     title: "User Login Successful!",
                     text: `Welcome - ${user?.displayName}`,
@@ -37,6 +39,22 @@ const LoginForm = () => {
                     icon: "error",
                     button: "Try again",
                 });
+            })
+    };
+
+    const saveUserDatabase = (name, email) => {
+        const user = { name, email };
+
+        fetch('https://bistro-boss-restaurant-server-pied.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
             })
     };
 
@@ -74,23 +92,26 @@ const LoginForm = () => {
         }
     };
 
-    Swal.fire({
-        icon: "info",
-        title: "Admin Access🔥",
-        html: `
-            <div>
-                <p class="block text-left ml-2 text-lg font-medium text-slate-700">Email</p>
-                <input value="adminaccess@gmail.com" id="email" readOnly class="input input-bordered w-full focus:outline-none text-lg"/>
-           </div>
-            <div class="mt-3">
-                <p class="block text-left ml-2 text-lg font-medium text-slate-700">Password</p>
-                <input value="1234567@" id="password" readOnly class="input input-bordered w-full focus:outline-none text-lg"/>
-           </div>
-        `,
-        showConfirmButton: false,
-        showCancelButton: true,
-        cancelButtonText: 'Close',
-    });
+    if (adminAccess === true) {
+        Swal.fire({
+            icon: "info",
+            title: "Admin Access🔐",
+            html: `
+                <div>
+                    <p class="block text-left ml-2 text-lg font-medium text-slate-700">Email</p>
+                    <input value="adminaccess@gmail.com" id="email" readOnly class="input input-bordered w-full focus:outline-none text-lg"/>
+               </div>
+                <div class="mt-3">
+                    <p class="block text-left ml-2 text-lg font-medium text-slate-700">Password</p>
+                    <input value="1234567@" id="password" readOnly class="input input-bordered w-full focus:outline-none text-lg"/>
+               </div>
+            `,
+            showConfirmButton: false,
+            showCancelButton: true,
+            cancelButtonText: 'Close',
+        });
+        setAdminAccess(false);
+    }
 
     return (
         <div className='lg:pr-16 px-5 lg:px-0'>

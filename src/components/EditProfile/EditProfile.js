@@ -91,7 +91,7 @@ const EditProfile = () => {
             <SectionTitle subHeading={'My Information'} heading={'Update Profile'}></SectionTitle>
             <div className='px-5 py-8 lg:p-12 w-11/12 lg:w-1/2 mx-auto bg-[#F3F3F3]'>
                 <div className="avatar mb-8 flex justify-center">
-                    <div className="w-28 rounded-full ring ring-primary ring-offset-1">
+                    <div className="w-28 rounded-full ring ring-primary ring-offset-2">
                         {
                             user.photoURL ?
                                 <img src={user.photoURL} alt='userImg' className='w-full rounded-full' />

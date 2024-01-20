@@ -44,20 +44,22 @@ const DashboardNavbar = () => {
                     <span className="badge badge-sm indicator-item bg-primary border-none text-white">{0}</span>
                 </div>
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-12 rounded-full border border-primary">
-                            {
-                                user.photoURL ?
-                                    <img src={user.photoURL} alt='userImg' className='w-full rounded-full' />
-                                    :
-                                    <img src={userImg} alt='userImg' className='w-full rounded-full' />
-                            }
+                    <label tabIndex={0} className="btn btn-ghost btn-circle">
+                        <div className='avatar'>
+                            <div className="w-10 rounded-full ring ring-primary ring-offset-2">
+                                {
+                                    user.photoURL ?
+                                        <img src={user.photoURL} alt='userImg' className='w-full rounded-full' />
+                                        :
+                                        <img src={userImg} alt='userImg' className='w-full rounded-full' />
+                                }
+                            </div>
                         </div>
                     </label>
                     <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-[1] py-8 px-6 shadow bg-base-100 rounded-box w-80">
                         <div className='text-center mb-4'>
                             <div className="avatar">
-                                <div className="w-20 rounded-full ring ring-primary ring-offset-1">
+                                <div className="w-20 rounded-full ring ring-primary ring-offset-2">
                                     {
                                         user.photoURL ?
                                             <img src={user.photoURL} alt='userImg' className='w-full rounded-full' />

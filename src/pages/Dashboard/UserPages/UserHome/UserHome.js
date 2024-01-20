@@ -87,7 +87,7 @@ const UserHome = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-3'>
                 <div className='bg-[#FFEDD5] text-center px-8 py-12'>
                     <div className="avatar">
-                        <div className="w-24 rounded-full ring ring-primary ring-offset-1">
+                        <div className="w-24 rounded-full ring ring-primary ring-offset-2">
                             {
                                 user.photoURL ?
                                     <img src={user.photoURL} alt='' className='w-full rounded-full' />
