@@ -41,7 +41,7 @@ const ManageItems = () => {
     }
 
     return (
-        <section className='bg-[#F6F6F6] py-10 lg:p-10 h-full'>
+        <section className='bg-[#F6F6F6] py-10 lg:p-10 min-h-screen'>
             <SectionTitle subHeading={'Hurry Up'} heading={'Manage All Items'}></SectionTitle>
             <div className='w-11/12 lg:w-4/5 mx-auto bg-white p-5 lg:p-10'>
                 <div className='flex justify-between items-center mb-4 lg:mb-6'>
@@ -80,7 +80,7 @@ const ManageItems = () => {
                         onClick={() => setCurrentPage(number)}
                         className={`btn btn-sm mb-1 mr-1 ${currentPage === number ? 'bg-primary text-white hover:bg-primary' : 'bg-white'}`}
                         key={number}
-                    >{number}</button>)
+                    >{number + 1}</button>)
                 }
                 <select
                     value={itemsPerPage}

@@ -38,7 +38,7 @@ const MyBooking = () => {
         <>
             {
                 bookings.length > 0 ?
-                    <div className='bg-[#F6F6F6] py-10 lg:p-10 h-full'>
+                    <div className='bg-[#F6F6F6] py-10 lg:p-10 min-h-screen'>
                         <SectionTitle subHeading={'Excellent Ambience'} heading={'My Bookings'}></SectionTitle>
                         <div className='w-11/12 lg:w-4/5 mx-auto bg-white p-5 lg:p-10'>
                             <div className='flex justify-between items-center mb-3 lg:mb-6'>

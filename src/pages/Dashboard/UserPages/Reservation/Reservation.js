@@ -112,7 +112,7 @@ const Reservation = () => {
                             <select
                                 {...register("time")}
                                 type='text'
-                                className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                                className="select rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                             >
                                 {
                                     times.map((time, index) => <option
@@ -130,7 +130,7 @@ const Reservation = () => {
                             <select
                                 {...register("guest")}
                                 type='text'
-                                className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                                className="select rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                             >
                                 {
                                     guests.map((guest, index) => <option

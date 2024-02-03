@@ -54,7 +54,7 @@ const UserRow = ({ index, user, refetch }) => {
     return (
         <tr className='text-secondary font-semibold'>
             <td>{index + 1}</td>
-            <td>
+            <td className='avatar'>
                 <div className="w-12 flex items-center rounded-full border">
                     {
                         image ?

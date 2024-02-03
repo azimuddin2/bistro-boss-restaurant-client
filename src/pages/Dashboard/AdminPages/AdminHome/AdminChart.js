@@ -122,7 +122,7 @@ const AdminChart = () => {
 
     return (
         <section className='grid grid-cols-1 lg:grid-cols-2 gap-3 rounded'>
-            <div className='bg-white'>
+            <div className='bg-white rounded-lg lg:px-4'>
                 <ResponsiveContainer width={'100%'} height={400}>
                     <BarChart
                         data={data}
@@ -145,7 +145,7 @@ const AdminChart = () => {
                     </BarChart>
                 </ResponsiveContainer>
             </div>
-            <div className='bg-white'>
+            <div className='bg-white rounded-lg'>
                 <div className='grid grid-cols-3 gap-2 mt-8 mx-auto px-5'>
                     {
                         categories.map((category) => <p

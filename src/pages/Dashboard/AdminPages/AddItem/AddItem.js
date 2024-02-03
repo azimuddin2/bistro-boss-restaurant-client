@@ -88,7 +88,7 @@ const AddItem = () => {
                             <select
                                 {...register("category")}
                                 type='text'
-                                className="input rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                                className="select rounded-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                             >
                                 {
                                     categories?.map((category, index) => <option

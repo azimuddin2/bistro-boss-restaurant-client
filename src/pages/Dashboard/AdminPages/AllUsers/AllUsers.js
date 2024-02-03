@@ -35,7 +35,7 @@ const AllUsers = () => {
     }
 
     return (
-        <section className='bg-[#F6F6F6] py-10 lg:p-10 h-full'>
+        <section className='bg-[#F6F6F6] py-10 lg:p-10 min-h-screen'>
             <SectionTitle subHeading={'How Many?'} heading={'Manage All Users'}></SectionTitle>
             <div className='w-11/12 lg:w-3/4 mx-auto bg-white p-5 lg:p-10'>
                 <div className='lg:flex items-center justify-between mb-3 lg:mb-5'>
